@@ -7,3 +7,9 @@ body {
 main {
     flex: 1 0 auto;
 }
+
+.card-action.cog.vis{
+    padding: 0px;
+    visibility: hidden ;
+    height: 0px;
+}

@@ -18,3 +18,16 @@ document.addEventListener("DOMContentLoaded", function() {
     let collapsibles = document.querySelectorAll(".collapsible");
     M.Collapsible.init(collapsibles);
 });
+
+const COGS = document.querySelectorAll('.fa-cog')
+const BOTTOM_CARD = document.querySelectorAll('.card-action.cog')
+
+
+COGS.forEach((cog)=>{
+    cog.addEventListener('click', function() {
+        console.log('Cog clicked')
+        BOTTOM_CARD.forEach((bot)=>{
+            bot.classList.toggle('vis')
+        })
+        })
+})

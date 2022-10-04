@@ -10,21 +10,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    <title>Treatment Manager</title>
+    <title>Sports Massage App</title>
 </head>
 
 <body>
 
     <header>
         <!-- top navbar -->
-        <nav class="light-blue darken-1">
+        <nav class="orange darken-4">
             <div class="nav-wrapper">
-            <a href="{{ url_for('home') }}" class="brand-logo">Treatment Manager</a>
+            <a href="{{ url_for('home') }}" class="brand-logo">Sports Therapy Manager</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('home') }}">Home</a></li>
-                <li><a href="{{ url_for('add_treatment') }}">New Treatment</a></li>
                 <li><a href="{{ url_for('clients') }}">Clients</a></li>
+                <li><a href="{{ url_for('add_treatment') }}">New Treatment</a></li>
             </ul>
             </div>
         </nav>
@@ -32,8 +32,8 @@
         <!-- mobile sidenav -->
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('add_treatment') }}">New Treatment</a></li>
             <li><a href="{{ url_for('clients') }}">Clients</a></li>
+            <li><a href="{{ url_for('add_treatment') }}">New Treatment</a></li>
         </ul>
     </header>
 
