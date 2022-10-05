@@ -70,8 +70,7 @@ def add_treatment():
             treatment_description=request.form.get("treatment_description"),
             is_urgent=bool(True if request.form.get("is_urgent") else False),
             due_date=request.form.get("due_date"),
-            client_id=request.form.get("client_id")
-        )
+            client_id=request.form.get("client_id"))
         db.session.add(treatment)
         db.session.commit()
         return redirect(url_for("home"))
