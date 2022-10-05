@@ -17,7 +17,7 @@
 
     <header>
         <!-- top navbar -->
-        <nav class="orange darken-4">
+        <nav class="topnav">
             <div class="nav-wrapper">
             <a href="{{ url_for('home') }}" class="brand-logo">Sports Therapy Manager</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
@@ -30,7 +30,7 @@
         </nav>
 
         <!-- mobile sidenav -->
-        <ul class="sidenav" id="mobile-demo">
+        <ul class="sidenav topnav" id="mobile-demo">
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('clients') }}">Clients</a></li>
             <li><a href="{{ url_for('add_treatment') }}">New Treatment</a></li>
@@ -42,10 +42,9 @@
         {% endblock %}
     </main>
 
-    <footer class="page-footer blue darken-3">
-        <div class="footer-copyright">
-            <div class="container">
-            </div>
+    <footer class="page-footer footernav">
+        <div class="container">
+            
         </div>
     </footer>
 

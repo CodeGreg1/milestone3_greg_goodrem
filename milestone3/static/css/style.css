@@ -13,3 +13,10 @@ main {
     visibility: hidden ;
     height: 0px;
 }
+
+.topnav, .footernav{
+    background-image: url(../sportsmassagebanner.png) ;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
