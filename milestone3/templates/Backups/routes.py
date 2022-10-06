@@ -1,10 +1,24 @@
+import os
 from flask import (
-    flash, render_template,
+    Flask, flash, render_template,
     redirect, request, session, url_for)
-from bson.objectid import ObjectId
-from werkzeug.security import generate_password_hash, check_password_hash
-from milestone3 import app, db, mongo
+from milestone3 import app, db
 from milestone3.models import Client, Treatment
+from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
+if os.path.exists("env.py"):
+    import env
+
+
+app2 = Flask(__name__)
+
+
+app2.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+app2.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app2.secret_key = os.environ.get("SECRET_KEY")
+
+
+mongo = PyMongo(app2)
 
 
 @app.route("/")
