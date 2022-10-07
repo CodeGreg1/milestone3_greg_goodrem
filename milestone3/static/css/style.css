@@ -15,7 +15,7 @@ main {
 }
 
 .topnav, .footernav{
-    background-image: url(../sportsmassagebanner.png) ;
+    background-image: url(../images/sportsmassagebanner.png) ;
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;

@@ -4,7 +4,7 @@ from flask import (
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from milestone3 import app, db, mongo
-from milestone3.models import Users, Client, Treatment
+from milestone3.models import Users, Client, Treatment, Therapist
 
 
 @app.route("/")
@@ -82,7 +82,7 @@ def delete_treatment(treatment_id):
 
 @app.route("/get_clients")
 def get_clients():
-    if "user" not in session or session["user"] != "goodrem":
+    if "user" not in session or session["user"] != "gadmin":
         flash("You must be admin to manage clients!")
         return redirect(url_for("get_treatments"))
 
@@ -92,7 +92,7 @@ def get_clients():
 
 @app.route("/add_client", methods=["GET", "POST"])
 def add_client():
-    if "user" not in session or session["user"] != "goodrem":
+    if "user" not in session or session["user"] != "gadmin":
         flash("You must be admin to manage clients!")
         return redirect(url_for("get_treatments"))
 
@@ -106,7 +106,7 @@ def add_client():
 
 @app.route("/edit_client/<int:client_id>", methods=["GET", "POST"])
 def edit_client(client_id):
-    if "user" not in session or session["user"] != "goodrem":
+    if "user" not in session or session["user"] != "gadmin":
         flash("You must be admin to manage clients!")
         return redirect(url_for("get_treatments"))
     
@@ -120,7 +120,7 @@ def edit_client(client_id):
 
 @app.route("/delete_client/<int:client_id>")
 def delete_client(client_id):
-    if session["user"] != "goodrem":
+    if session["user"] != "gadmin":
         flash("You must be admin to manage clients!")
         return redirect(url_for("get_treatments"))
 

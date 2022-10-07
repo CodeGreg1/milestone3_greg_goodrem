@@ -24,7 +24,7 @@
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('add_treatment') }}">New Treatment</a></li>
-                        {% if session.user|lower == "goodrem"|lower %}
+                        {% if session.user|lower == "gadmin"|lower %}
                             <li><a href="{{ url_for('get_clients') }}">Manage Clients</a></li>
                         {% endif %}
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
