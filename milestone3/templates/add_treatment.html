@@ -1,52 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="text-darken-4 center-align">Add Treatment</h3>
+    <h3 class="brown-text text-darken-4 center-align">Add Treatment</h3>
 
-<div class="row card-panel grey lighten-5">
-    <form class="col s12" method="POST" action="{{ url_for('add_treatment') }}">
-        <!-- treatment name -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-pencil-alt prefix text-darken-4"></i>
-                <input id="treatment_name" name="treatment_name" minlength="5" maxlength="50" type="text" class="validate" required>
-                <label for="treatment_name">Treatment Name</label>
-            </div>
-        </div>
-        <!-- treatment description -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-align-left prefix text-darken-4"></i>
-                <textarea id="treatment_description" name="treatment_description" minlength="5" maxlength="200"
-                    type="text" class="materialize-textarea validate" required></textarea>
-                <label for="treatment_description">Treatment Description</label>
-            </div>
-        </div>
-        <!-- due date -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-calendar-alt prefix text-darken-4"></i>
-                <input id="due_date" name="due_date" type="text" class="datepicker validate" required>
-                <label for="due_date">Due Date</label>
-            </div>
-        </div>
-        <!-- is urgent -->
-        <div class="row">
-            <div class="input-field col s12">
-                <div class="switch">
-                    <i class="fas fa-exclamation-circle prefix text-darken-4"></i>
-                    <label for="is_urgent">
-                        <input id="is_urgent" name="is_urgent" type="checkbox">
-                        <span class="lever"></span>
-                        Is Urgent
-                    </label>
-                </div>
-            </div>
-        </div>
-        <!-- client id -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-folder-open prefix text-darken-4"></i>
+    <div class="row card-panel grey lighten-5">
+        <form class="col s12" method="POST" action="{{ url_for('add_treatment') }}">
+            <!-- client selection -->
+			<div class="row">
+				<div class="input-field col s12">
+                <i class="fas fa-folder-open prefix brown-text text-darken-4"></i>
                 <select id="client_id" name="client_id" class="validate" required>
                     <option value="" disabled selected>Choose Client</option>
                     {% for client in clients %}
@@ -55,16 +17,55 @@
                 </select>
                 <label for="client_id">Client</label>
             </div>
-        </div>
-        <!-- submit button -->
-        <div class="row">
-            <div class="col s12 center-align">
-                <button type="submit" class="btn-large orange darken-1">
-                    Add Treatment <i class="fas fa-plus-square right"></i>
-                </button>
+			</div>
+            <!-- treatment name -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix brown-text text-darken-4"></i>
+                    <input id="treatment_name" name="treatment_name" minlength="5" maxlength="50"
+                        type="text" class="validate" required>
+                    <label for="treatment_name">Treatment Name</label>
+                </div>
             </div>
-        </div>
-    </form>
-</div>
+            <!-- treatment description -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix brown-text text-darken-4"></i>
+                    <textarea id="treatment_description" name="treatment_description" minlength="5"
+                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <label for="treatment_description">Treatment Description</label>
+                </div>
+            </div>
+            <!-- due date picker -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-calendar-alt prefix brown-text text-darken-4"></i>
+                    <input id="due_date" name="due_date" type="text" class="datepicker validate" required>
+                    <label for="due_date">Due Date</label>
+                </div>
+            </div>
+            <!-- is urgent toggle -->
+			<div class="row">
+				<div class="input-field col s12">
+					<div class="switch">
+                        <i class="fas fa-exclamation-circle prefix brown-text text-darken-4"></i>
+						<label for="is_urgent">
+                            <input type="checkbox" id="is_urgent" name="is_urgent">
+                            <span class="lever"></span>
+                            Is Urgent
+                        </label>
+					</div>
+				</div>
+			</div>
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large brown darken-1 text-shadow">
+                        Add Treatment <i class="fas fa-plus-square right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 
 {% endblock %}

@@ -1,36 +1,56 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="text-darken-4 center-align">Treatments</h3>
+    <h3 class="brown-text text-darken-4 center-align">My Treatments</h3>
 
-<div class="row">
-    <div class="col s12 center-align">
-        <a href="{{ url_for('add_treatment') }}" class="btn-large orange darken-2">
-            Add Treatment <i class="fas fa-plus-square right"></i>
-        </a>
+    <div class="row card-panel grey lighten-5">
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m8">
+                    <i class="fas fa-search prefix brown-text text-darken-4"></i>
+                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                    <label for="query">Search Treatments</label>
+                </div>
+                <div class="col s12 m4">
+                    <a href="{{ url_for('get_treatments') }}" class="red btn text-shadow">Reset</a>
+                    <button type="submit" class="brown darken-1 btn text-shadow">
+                        <i class="fas fa-search left"></i> Search
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
-</div>
 
-<ul class="collapsible">
-    {% for treatment in treatments|sort(attribute="due_date") %}
-    <li>
-        <div class="collapsible-header white-text orange darken-4">
-            <i class="fas fa-caret-down"></i>
-            <strong>{{ treatment.treatment_name }}</strong> : {{ treatment.due_date.strftime("%d %B, %Y") }}
-            {% if treatment.is_urgent == True %}
-                <i class="fas fa-exclamation-circle text-lighten-2"></i>
-            {% endif %}
-        </div>
-        <div class="collapsible-body">
-            <strong>{{ treatment.client }}</strong>
-            <p>{{ treatment.treatment_description }}</p>
-            <p>
-                <a href="{{ url_for('edit_treatment', treatment_id=treatment.id) }}" class="btn green accent-4">Edit</a>
-                <a href="{{ url_for('delete_treatment', treatment_id=treatment.id) }}" class="btn red">Delete</a>
-            </p>
-        </div>
-    </li>
-    {% endfor %}
-</ul>
+    {% if treatments|length > 0 %}
+    <ul class="collapsible">
+        {% for treatment in treatments %}
+        <li>
+            <div class="collapsible-header white-text brown darken-4 text-shadow">
+                <div class="col s3">
+                    <i class="fas fa-caret-down"></i>
+                    {% if session.user|lower == treatment.created_by|lower %}
+                        <a href="{{ url_for('delete_treatment', treatment_id=treatment._id) }}" class="btn-small green accent-4">Done</a>
+                        <a href="{{ url_for('edit_treatment', treatment_id=treatment._id) }}" class="btn-small red lighten-1">Edit</a>
+                    {% endif %}
+                </div>
+                <div class="col s9">
+                    <strong>{{ treatment.treatment_name }}</strong> : {{ treatment.due_date }}
+                    {% if treatment.is_urgent == "on" %}
+                        <i class="fas fa-exclamation-circle brown-text text-lighten-2 tooltipped"
+                            data-position="right" data-tooltip="URGENT!"></i>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="collapsible-body">
+                <strong>{{ treatment.client_name }}</strong>
+                <p>{{ treatment.treatment_description }}</p>
+                <p><em>by: {{ treatment.created_by }}</em></p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
+    {% endif %}
 
 {% endblock %}

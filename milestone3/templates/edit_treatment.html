@@ -1,82 +1,86 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="text-darken-4 center-align">Edit Treatment</h3>
+    <h3 class="brown-text text-darken-4 center-align">Edit Treatment</h3>
 
-<div class="row card-panel grey lighten-5">
-    <form class="col s12" method="POST" action="{{ url_for('edit_treatment', treatment_id=treatment.id) }}">
-        <!-- treatment name -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-pencil-alt prefix text-darken-4"></i>
-                <input id="treatment_name" name="treatment_name" value="{{ treatment.treatment_name }}" minlength="5" maxlength="50"
-                    type="text" class="validate" required>
-                <label for="treatment_name">Treatment Name</label>
-            </div>
-        </div>
-        <!-- treatment description -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-align-left prefix text-darken-4"></i>
-                <textarea id="treatment_description" name="treatment_description" minlength="5" maxlength="200" type="text"
-                    class="materialize-textarea validate" required>
-                    {{- treatment.treatment_description -}}
-                </textarea>
-                <label for="treatment_description">Treatment Description</label>
-            </div>
-        </div>
-        <!-- due date -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-calendar-alt prefix text-darken-4"></i>
-                <input id="due_date" name="due_date" type="text" value="{{ treatment.due_date.strftime('%d %B, %Y') }}"
-                    class="datepicker validate" required>
-                <label for="due_date">Due Date</label>
-            </div>
-        </div>
-        <!-- is urgent -->
-        <div class="row">
-            <div class="input-field col s12">
-                <div class="switch">
-                    <i class="fas fa-exclamation-circle prefix text-darken-4"></i>
-                    <label for="is_urgent">
-                        {% if treatment.is_urgent == True %}
-                            <input id="is_urgent" name="is_urgent" type="checkbox" checked>
-                        {% else %}
-                            <input id="is_urgent" name="is_urgent" type="checkbox">
-                        {% endif %}
-                        <span class="lever"></span>
-                        Is Urgent
-                    </label>
-                </div>
-            </div>
-        </div>
-        <!-- client id -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-folder-open prefix text-darken-4"></i>
-                <select id="client_id" name="client_id" class="validate" required>
-                    <option value="" disabled>Choose Client</option>
+    <div class="row card-panel grey lighten-5">
+        <form class="col s12" method="POST" action="{{ url_for('edit_treatment', treatment_id=treatment._id) }}">
+            <!-- client selection -->
+			<div class="row">
+				<div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix brown-text text-darken-4"></i>
+					<select id="client_id" name="client_id" class="validate" required>
+                        <option value="" disabled>Choose Client</option>
                     {% for client in clients %}
-                        {% if client == treatment.client %}
+                        {% if client.id == treatment.client_id | int %}
                             <option value="{{ client.id }}" selected>{{ client.client_name }}</option>
                         {% else %}
                             <option value="{{ client.id }}">{{ client.client_name }}</option>
                         {% endif %}
                     {% endfor %}
-                </select>
-                <label for="client_id">Client</label>
+                    </select>
+					<label for="client_name">Treatment Client</label>
+				</div>
+			</div>
+            <!-- treatment name -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix brown-text text-darken-4"></i>
+                    <input id="treatment_name" name="treatment_name" minlength="5" maxlength="50"
+                        value="{{ treatment.treatment_name }}" type="text" class="validate" required>
+                    <label for="treatment_name">Treatment Name</label>
+                </div>
             </div>
-        </div>
-        <!-- submit button -->
-        <div class="row">
-            <div class="col s12 center-align">
-                <button type="submit" class="btn-large orange darken-1">
-                    Edit Treatment <i class="fas fa-edit right"></i>
-                </button>
+            <!-- treatment description -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix brown-text text-darken-4"></i>
+                    <textarea id="treatment_description" name="treatment_description" minlength="5"
+                        maxlength="200" class="materialize-textarea validate" required>
+                        {{- treatment.treatment_description -}}
+                    </textarea>
+                    <label for="treatment_description">Treatment Description</label>
+                </div>
             </div>
-        </div>
-    </form>
-</div>
+            <!-- due date picker -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-calendar-alt prefix brown-text text-darken-4"></i>
+                    <input id="due_date" name="due_date" type="text"
+                        value="{{ treatment.due_date }}" class="datepicker validate" required>
+                    <label for="due_date">Due Date</label>
+                </div>
+            </div>
+            <!-- is urgent toggle -->
+			<div class="row">
+				<div class="input-field col s12">
+					<div class="switch">
+                        <i class="fas fa-exclamation-circle prefix brown-text text-darken-4"></i>
+						<label for="is_urgent">
+                            {% if treatment.is_urgent == "on" %}
+                                <input type="checkbox" id="is_urgent" name="is_urgent" checked>
+                            {% else %}
+                                <input type="checkbox" id="is_urgent" name="is_urgent">
+                            {% endif %}
+                            <span class="lever"></span>
+                            Is Urgent
+                        </label>
+					</div>
+				</div>
+			</div>
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <!-- cancel button -->
+                    <a href="{{ url_for('get_treatments') }}" class="btn-large red text-shadow">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
+                    <button type="submit" class="btn-large brown darken-1 text-shadow">
+                        Edit Treatment <i class="fas fa-edit right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 
 {% endblock %}
