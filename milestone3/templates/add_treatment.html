@@ -8,11 +8,11 @@
             <!-- client selection -->
 			<div class="row">
 				<div class="input-field col s12">
-                <i class="fas fa-folder-open prefix brown-text text-darken-4"></i>
-                <select id="client_id" name="client_id" class="validate" required>
+                <i class="fas fa-user-edit prefix brown-text text-darken-4"></i>
+                <select id="fullname" name="fullname" class="validate" required>
                     <option value="" disabled selected>Choose Client</option>
-                    {% for client in clients %}
-                        <option value="{{ client.id }}">{{ client.client_name }}</option>
+                    {% for user in users %}
+                        <option value="{{ user.id }}">{{ user.fullname }}</option>
                     {% endfor %}
                 </select>
                 <label for="client_id">Client</label>
@@ -30,7 +30,7 @@
             <!-- treatment subjective history -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-history prefix brown-text text-darken-4"></i>
                     <textarea id="treatment_subjective" name="treatment_subjective" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="treatment_subjective">Subjective History</label>
@@ -40,7 +40,7 @@
             <!-- treatment observation -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-eye prefix brown-text text-darken-4"></i>
                     <textarea id="treatment_observation" name="treatment_observation" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="treatment_observation">Observations</label>
@@ -50,7 +50,7 @@
             <!-- Treatment Range of Movement -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-drafting-compass prefix brown-text text-darken-4"></i>
                     <textarea id="treatment_rom" name="treatment_rom" minlength="5"
                     maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="treatment_rom">Range of Movement</label>
@@ -60,7 +60,7 @@
             <!-- treatment treatment_special_tests -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-vial prefix brown-text text-darken-4"></i>
                     <textarea id="treatment_special_tests" name="treatment_special_tests" minlength="5"
                     maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="treatment_special_tests">Special/Functional Tests</label>
@@ -70,7 +70,7 @@
             <!-- treatment Palpation -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-hands prefix brown-text text-darken-4"></i>
                     <textarea id="treatment_palpation" name="treatment_palpation" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="treatment_palpation">Palpation</label>
@@ -109,3 +109,4 @@
     </div>
 
 {% endblock %}
+

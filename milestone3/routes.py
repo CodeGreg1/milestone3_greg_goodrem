@@ -30,8 +30,8 @@ def add_treatment():
         
     if request.method == "POST":
         follow_up = "on" if request.form.get("follow_up") else "off"
+        #"user_id": request.form.get("user_id"),
         treatment = {
-            "client_id": request.form.get("client_id"),
             "treatment_name": request.form.get("treatment_name"),
             "treatment_subjective": request.form.get("treatment_subjective"),
             "treatment_observation": request.form.get("treatment_observation"),
@@ -42,11 +42,14 @@ def add_treatment():
             "treatment_date": request.form.get("treatment_date"),
             "created_by": session["user"]}
         mongo.db.treatments.insert_one(treatment)
+        user = User(
+            fullname=request.form.get("fullname"))
+        
         flash("Treatment Successfully Added")
         return redirect(url_for("get_treatments"))
 
-    clients = list(Client.query.order_by(Client.client_name).all())
-    return render_template("add_treatment.html", clients=clients)
+    users = list(User.query.order_by(User.fullname).all())
+    return render_template("add_treatment.html", users=users)
 
 
 @app.route("/edit_treatment/<treatment_id>", methods=["GET", "POST"])
@@ -59,7 +62,7 @@ def edit_treatment(treatment_id):
     if request.method == "POST":
         follow_up = "on" if request.form.get("follow_up") else "off"
         submit = {
-            "client_id": request.form.get("client_id"),
+            "user_id": request.form.get("user_id"),
             "treatment_name": request.form.get("treatment_name"),
             "treatment_description": request.form.get("treatment_description"),
             "follow_up": follow_up,
@@ -68,8 +71,8 @@ def edit_treatment(treatment_id):
         mongo.db.treatments.update({"_id": ObjectId(treatment_id)}, submit)
         flash("Treatment Successfully Updated")
 
-    clients = list(Client.query.order_by(Client.client_name).all())
-    return render_template("edit_treatment.html", treatment=treatment, clients=clients)
+    users = list(User.query.order_by(User.fullname).all())
+    return render_template("edit_treatment.html", treatment=treatment, users=users)
 
 
 @app.route("/delete_treatment/<treatment_id>")

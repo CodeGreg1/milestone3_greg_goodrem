@@ -9,13 +9,13 @@
 			<div class="row">
 				<div class="input-field col s12">
                     <i class="fas fa-folder-open prefix brown-text text-darken-4"></i>
-					<select id="client_id" name="client_id" class="validate" required>
+					<select id="user_id" name="user_id" class="validate" required>
                         <option value="" disabled>Choose Client</option>
-                    {% for client in clients %}
+                    {% for user in users %}
                         {% if client.id == treatment.client_id | int %}
-                            <option value="{{ client.id }}" selected>{{ client.client_name }}</option>
+                            <option value="{{ user.id }}" selected>{{ user.fullname }}</option>
                         {% else %}
-                            <option value="{{ client.id }}">{{ client.client_name }}</option>
+                            <option value="{{ user.id }}">{{ user.fullname }}</option>
                         {% endif %}
                     {% endfor %}
                     </select>
@@ -42,7 +42,7 @@
                     <label for="treatment_description">Treatment Description</label>
                 </div>
             </div>
-            <!-- due date picker -->
+            <!-- Treatment date picker -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-calendar-alt prefix brown-text text-darken-4"></i>
