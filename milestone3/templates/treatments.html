@@ -34,8 +34,8 @@
                     {% endif %}
                 </div>
                 <div class="col s9">
-                    <strong>{{ treatment.treatment_name }}</strong> : {{ treatment.due_date }}
-                    {% if treatment.is_urgent == "on" %}
+                    <strong>{{ treatment.treatment_name }}</strong> : {{ treatment.treatment_date }}
+                    {% if treatment.follow_up == "on" %}
                         <i class="fas fa-exclamation-circle brown-text text-lighten-2 tooltipped"
                             data-position="right" data-tooltip="URGENT!"></i>
                     {% endif %}

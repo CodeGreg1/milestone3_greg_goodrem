@@ -4,7 +4,8 @@ from flask import (
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from milestone3 import app, db, mongo
-from milestone3.models import Users, Client, Treatment, Therapist
+from milestone3.models import User, Client, Treatment
+# , Therapist
 
 
 @app.route("/")
@@ -28,13 +29,17 @@ def add_treatment():
         return redirect(url_for("get_treatments"))
         
     if request.method == "POST":
-        is_urgent = "on" if request.form.get("is_urgent") else "off"
+        follow_up = "on" if request.form.get("follow_up") else "off"
         treatment = {
             "client_id": request.form.get("client_id"),
             "treatment_name": request.form.get("treatment_name"),
-            "treatment_description": request.form.get("treatment_description"),
-            "is_urgent": is_urgent,
-            "due_date": request.form.get("due_date"),
+            "treatment_subjective": request.form.get("treatment_subjective"),
+            "treatment_observation": request.form.get("treatment_observation"),
+            "treatment_rom": request.form.get("treatment_rom"),
+            "treatment_special_tests": request.form.get("treatment_special_tests"),
+            "treatment_palpation": request.form.get("treatment_palpation"),
+            "follow_up": follow_up,
+            "treatment_date": request.form.get("treatment_date"),
             "created_by": session["user"]}
         mongo.db.treatments.insert_one(treatment)
         flash("Treatment Successfully Added")
@@ -52,13 +57,13 @@ def edit_treatment(treatment_id):
         return redirect(url_for("get_treatments"))
         
     if request.method == "POST":
-        is_urgent = "on" if request.form.get("is_urgent") else "off"
+        follow_up = "on" if request.form.get("follow_up") else "off"
         submit = {
             "client_id": request.form.get("client_id"),
             "treatment_name": request.form.get("treatment_name"),
             "treatment_description": request.form.get("treatment_description"),
-            "is_urgent": is_urgent,
-            "due_date": request.form.get("due_date"),
+            "follow_up": follow_up,
+            "treatment_date": request.form.get("treatment_date"),
             "created_by": session["user"]}
         mongo.db.treatments.update({"_id": ObjectId(treatment_id)}, submit)
         flash("Treatment Successfully Updated")
@@ -86,8 +91,16 @@ def get_clients():
         flash("You must be admin to manage clients!")
         return redirect(url_for("get_treatments"))
 
-    clients = list(Client.query.order_by(Client.client_name).all())
-    return render_template("clients.html", clients=clients)
+    users = list(User.query.order_by(User.fullname).all())
+    return render_template("clients.html", users=users)
+# @app.route("/get_clients")
+# def get_clients():
+#     if "user" not in session or session["user"] != "gadmin":
+#         flash("You must be admin to manage clients!")
+#         return redirect(url_for("get_treatments"))
+
+#     clients = list(Client.query.order_by(Client.client_name).all())
+#     return render_template("clients.html", clients=clients)
 
 
 @app.route("/add_client", methods=["GET", "POST"])
@@ -97,37 +110,43 @@ def add_client():
         return redirect(url_for("get_treatments"))
 
     if request.method == "POST":
-        client = Client(client_name=request.form.get("client_name"))
+
+        client = Client(
+            client_name=request.form.get("client_name"),
+            client_dob=request.form.get("client_dob"),
+            client_email=request.form.get("client_email"),
+            client_phone=request.form.get("client_phone")
+        )
         db.session.add(client)
         db.session.commit()
         return redirect(url_for("get_clients"))
     return render_template("add_client.html")
 
 
-@app.route("/edit_client/<int:client_id>", methods=["GET", "POST"])
-def edit_client(client_id):
+@app.route("/edit_client/<int:user_id>", methods=["GET", "POST"])
+def edit_client(user_id):
     if "user" not in session or session["user"] != "gadmin":
         flash("You must be admin to manage clients!")
         return redirect(url_for("get_treatments"))
     
-    client = Client.query.get_or_404(client_id)
+    user = User.query.get_or_404(user_id)
     if request.method == "POST":
-        client.client_name = request.form.get("client_name")
+        user.fullname = request.form.get("fullname")
         db.session.commit()
         return redirect(url_for("get_clients"))
-    return render_template("edit_client.html", client=client)
+    return render_template("edit_client.html", user=user)
 
 
-@app.route("/delete_client/<int:client_id>")
-def delete_client(client_id):
+@app.route("/delete_client/<int:user_id>")
+def delete_client(user_id):
     if session["user"] != "gadmin":
         flash("You must be admin to manage clients!")
         return redirect(url_for("get_treatments"))
 
-    client = Client.query.get_or_404(client_id)
-    db.session.delete(client)
+    user = User.query.get_or_404(user_id)
+    db.session.delete(user)
     db.session.commit()
-    mongo.db.treatments.delete_many({"client_id": str(client_id)})
+    mongo.db.treatments.delete_many({"user_id": str(user_id)})
     return redirect(url_for("get_clients"))
 
 
@@ -135,16 +154,20 @@ def delete_client(client_id):
 def register():
     if request.method == "POST":
         # check if username already exists in db
-        existing_user = Users.query.filter(Users.user_name == \
+        existing_user = User.query.filter(User.user_name == \
             request.form.get("username").lower()).all()
         
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
         
-        user = Users(
+        user = User(
             user_name=request.form.get("username").lower(),
-            password=generate_password_hash(request.form.get("password"))
+            password=generate_password_hash(request.form.get("password")),
+            fullname=request.form.get("fullname"),
+            dob=request.form.get("dob"),
+            email=request.form.get("email"),
+            phone=request.form.get("phone")
         )
         
         db.session.add(user)
@@ -162,7 +185,7 @@ def register():
 def login():
     if request.method == "POST":
         # check if username exists in db
-        existing_user = Users.query.filter(Users.user_name == \
+        existing_user = User.query.filter(User.user_name == \
             request.form.get("username").lower()).all()
             #request.form.get("username").lower()).all()
 

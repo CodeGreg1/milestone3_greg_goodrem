@@ -27,32 +27,72 @@
                     <label for="treatment_name">Treatment Name</label>
                 </div>
             </div>
-            <!-- treatment description -->
+            <!-- treatment subjective history -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix brown-text text-darken-4"></i>
-                    <textarea id="treatment_description" name="treatment_description" minlength="5"
+                    <textarea id="treatment_subjective" name="treatment_subjective" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
-                    <label for="treatment_description">Treatment Description</label>
+                    <label for="treatment_subjective">Subjective History</label>
                 </div>
             </div>
-            <!-- due date picker -->
+
+            <!-- treatment observation -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix brown-text text-darken-4"></i>
+                    <textarea id="treatment_observation" name="treatment_observation" minlength="5"
+                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <label for="treatment_observation">Observations</label>
+                </div>
+            </div>
+            
+            <!-- Treatment Range of Movement -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix brown-text text-darken-4"></i>
+                    <textarea id="treatment_rom" name="treatment_rom" minlength="5"
+                    maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <label for="treatment_rom">Range of Movement</label>
+                </div>
+            </div>
+            
+            <!-- treatment treatment_special_tests -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix brown-text text-darken-4"></i>
+                    <textarea id="treatment_special_tests" name="treatment_special_tests" minlength="5"
+                    maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <label for="treatment_special_tests">Special/Functional Tests</label>
+                </div>
+            </div>
+            
+            <!-- treatment Palpation -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix brown-text text-darken-4"></i>
+                    <textarea id="treatment_palpation" name="treatment_palpation" minlength="5"
+                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <label for="treatment_palpation">Palpation</label>
+                </div>
+            </div>
+            <!-- Date of treatment picker -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-calendar-alt prefix brown-text text-darken-4"></i>
-                    <input id="due_date" name="due_date" type="text" class="datepicker validate" required>
-                    <label for="due_date">Due Date</label>
+                    <input id="treatment_date" name="treatment_date" type="text" class="datepicker validate" required>
+                    <label for="treatment_date">Treatment Date</label>
                 </div>
             </div>
-            <!-- is urgent toggle -->
+            <!-- Follow Up required toggle -->
 			<div class="row">
 				<div class="input-field col s12">
 					<div class="switch">
                         <i class="fas fa-exclamation-circle prefix brown-text text-darken-4"></i>
-						<label for="is_urgent">
-                            <input type="checkbox" id="is_urgent" name="is_urgent">
+						<label for="follow_up">
+                            <input type="checkbox" id="follow_up" name="follow_up">
                             <span class="lever"></span>
-                            Is Urgent
+                            Follow Up required
                         </label>
 					</div>
 				</div>
