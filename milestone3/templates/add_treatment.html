@@ -4,7 +4,7 @@
     <h3 class="brown-text text-darken-4 center-align">Add Treatment</h3>
 
     <div class="row card-panel grey lighten-5">
-        <form class="col s12" method="POST" action="{{ url_for('add_treatment') }}">
+        <form id="add_treatment_form" class="col s12" method="POST" action="{{ url_for('add_treatment') }}">
             <!-- client selection -->
 			<div class="row">
 				<div class="input-field col s12">
@@ -16,8 +16,17 @@
                     {% endfor %}
                 </select>
                 <label for="client_id">Client</label>
-            </div>
+                </div>
 			</div>
+             <!-- treatment client -->
+             <div class="row hide">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix brown-text text-darken-4"></i>
+                    <input id="treatment_client" name="treatment_client" minlength="5" maxlength="50"
+                        type="text" class="validate" required>
+                    <label for="treatment_client">Treatment Client Name</label>
+                </div>
+            </div>
             <!-- treatment name -->
             <div class="row">
                 <div class="input-field col s12">
@@ -100,7 +109,7 @@
             <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
-                    <button type="submit" class="btn-large brown darken-1 text-shadow">
+                    <button id="addButton" type="submit" class="btn-large brown darken-1 text-shadow">
                         Add Treatment <i class="fas fa-plus-square right"></i>
                     </button>
                 </div>

@@ -31,6 +31,7 @@ class Client(db.Model):
 class Treatment(db.Model):
     # schema for the Treatment model
     id = db.Column(db.Integer, primary_key=True)
+    treatment_client = db.Column(db.String(50), unique=True, nullable=False)
     treatment_name = db.Column(db.String(50), unique=True, nullable=False)
     treatment_subjective = db.Column(db.Text, nullable=False)
     follow_up = db.Column(db.Boolean, default=False, nullable=False)
@@ -40,7 +41,7 @@ class Treatment(db.Model):
     treatment_rom = db.Column(db.Text, nullable=False)
     treatment_special_tests = db.Column(db.Text, nullable=False)
     client_id = db.Column(db.Integer, db.ForeignKey("client.id", ondelete="CASCADE"), nullable=False)
-
+    
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
         return "#{0} - Treatment: {1} | Follow Up: {2}".format(

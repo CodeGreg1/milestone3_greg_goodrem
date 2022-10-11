@@ -32,6 +32,8 @@ def add_treatment():
         follow_up = "on" if request.form.get("follow_up") else "off"
         #"user_id": request.form.get("user_id"),
         treatment = {
+            "client_id": request.form.get("client_id"),
+            "treatment_client":request.form.get("treatment_client"),
             "treatment_name": request.form.get("treatment_name"),
             "treatment_subjective": request.form.get("treatment_subjective"),
             "treatment_observation": request.form.get("treatment_observation"),
@@ -62,9 +64,14 @@ def edit_treatment(treatment_id):
     if request.method == "POST":
         follow_up = "on" if request.form.get("follow_up") else "off"
         submit = {
-            "user_id": request.form.get("user_id"),
+            "client_id": request.form.get("client_id"),
+            "treatment_client":request.form.get("treatment_client"),
             "treatment_name": request.form.get("treatment_name"),
-            "treatment_description": request.form.get("treatment_description"),
+            "treatment_subjective": request.form.get("treatment_subjective"),
+            "treatment_observation": request.form.get("treatment_observation"),
+            "treatment_rom": request.form.get("treatment_rom"),
+            "treatment_special_tests": request.form.get("treatment_special_tests"),
+            "treatment_palpation": request.form.get("treatment_palpation"),
             "follow_up": follow_up,
             "treatment_date": request.form.get("treatment_date"),
             "created_by": session["user"]}

@@ -12,7 +12,7 @@
 					<select id="user_id" name="user_id" class="validate" required>
                         <option value="" disabled>Choose Client</option>
                     {% for user in users %}
-                        {% if client.id == treatment.client_id | int %}
+                        {% if user.user_id == treatment.client_id | int %}
                             <option value="{{ user.id }}" selected>{{ user.fullname }}</option>
                         {% else %}
                             <option value="{{ user.id }}">{{ user.fullname }}</option>
