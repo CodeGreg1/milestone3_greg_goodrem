@@ -20,7 +20,7 @@ def get_treatments():
         fullname = the_user.fullname
 
     return render_template(
-        "treatments.html", treatments=treatments, clients=Client
+        "treatments.html", treatments=treatments, clients=clients
         , fullname=fullname)
 
 
