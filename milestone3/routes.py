@@ -20,7 +20,8 @@ def get_treatments():
         fullname = the_user.fullname
 
     return render_template(
-        "treatments.html", treatments=treatments, clients=clients, fullname=fullname)
+        "treatments.html", treatments=treatments, clients=Client
+        , fullname=fullname)
 
 
 @app.route("/search", methods=["GET", "POST"])
