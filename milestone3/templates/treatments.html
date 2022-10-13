@@ -29,8 +29,7 @@
     <ul class="collapsible">
         {% for treatment in treatments %}
         <li>
-        {% if fullname|lower == treatment.treatment_client|lower %}
-        {% elif session["user"] == "gadmin" %}
+        {% if fullname|lower == treatment.treatment_client|lower or session["user"] == "gadmin" %}
             <div class="collapsible-header white-text brown darken-4 text-shadow">
                 <!-- <h3>{{ treatment.treatment_client }}</h3> -->
                 <div class="col s3">
