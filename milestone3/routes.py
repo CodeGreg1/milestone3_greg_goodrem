@@ -10,7 +10,7 @@ from milestone3.models import User, Client, Treatment
 @app.route("/")
 @app.route("/get_treatments")
 def get_treatments():
-    clients = list(Client.query.order_by(Client.client_name).all())
+    # clients = list(Client.query.order_by(Client.client_name).all())
     treatments = list(mongo.db.treatments.find())
 
     fullname = None
