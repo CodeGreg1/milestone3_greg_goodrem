@@ -21,16 +21,18 @@
         </form>
     </div>
     
-    <h3> 1 {{ session.user }}</h3>
-    <h3> 2 {{ user.fullname }}</h3>
+    <!-- <h3> 1 {{ fullname }}</h3>
+    <h3> 2 {{ session.user }}</h3>
+    <h3> 3 {{ treatment_client }}</h3> -->
     <h3></h3>
     {% if treatments|length > 0 %}
     <ul class="collapsible">
         {% for treatment in treatments %}
         <li>
-        {% if session.name|lower == treatment.treatment_client|lower %}
+        {% if fullname|lower == treatment.treatment_client|lower %}
+        {% elif session["user"] == "gadmin" %}
             <div class="collapsible-header white-text brown darken-4 text-shadow">
-                <h3>{{ treatment.treatment_client }}</h3>
+                <!-- <h3>{{ treatment.treatment_client }}</h3> -->
                 <div class="col s3">
                     <i class="fas fa-caret-down"></i>
                     <!-- {% if session.user|lower == treatment.created_by|lower %}
@@ -39,7 +41,7 @@
                     {% endif %} -->
                 </div>
                 <div class="col s9">
-                    <strong> {{ treatment.treatment_name }}</strong> : {{ treatment.treatment_date }}
+                    <strong>  {{ treatment.treatment_client }} - {{ treatment.treatment_name }}</strong> : {{ treatment.treatment_date }}
                     {% if treatment.follow_up == "on" %}
                         <i class="fas fa-exclamation-circle brown-text text-lighten-2 tooltipped"
                             data-position="right" data-tooltip="URGENT!"></i>

@@ -12,9 +12,15 @@ from milestone3.models import User, Client, Treatment
 def get_treatments():
     clients = list(Client.query.order_by(Client.client_name).all())
     treatments = list(mongo.db.treatments.find())
-    name = User.fullname
+
+    fullname = None
+
+    if "user" in session:
+        the_user = User.query.filter(User.user_name == session["user"]).first()
+        fullname = the_user.fullname
+
     return render_template(
-        "treatments.html", treatments=treatments, clients=clients)
+        "treatments.html", treatments=treatments, clients=clients, fullname=fullname)
 
 
 @app.route("/search", methods=["GET", "POST"])
