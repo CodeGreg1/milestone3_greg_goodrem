@@ -25,11 +25,20 @@ COGS.forEach((cog)=>{
         console.log('Cog clicked')
         BOTTOM_CARD.forEach((bot)=>{
             bot.classList.toggle('vis')})})})
-            
+        //   May need to be in own script page
 const FULLNAME = document.getElementById("fullname")
 
 FULLNAME.addEventListener('change',function(e){
   let opttext=FULLNAME.options[FULLNAME.options.selectedIndex].text;
   console.log(opttext);
   treatment_client.value = opttext
+  
 });
+
+// const USERCOPY = document.getElementById("treatment_usr")
+
+// USERCOPY.addEventListener('change',function(e){
+//   let opttext=USERCOPY.options[USERCOPY.options.selectedIndex].text;
+//   console.log(opttext);
+//   treatment_usr.value = opttext
+// });

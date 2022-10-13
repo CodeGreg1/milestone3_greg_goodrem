@@ -5,53 +5,92 @@
 
     <div class="row card-panel grey lighten-5">
         <form class="col s12" method="POST" action="{{ url_for('edit_treatment', treatment_id=treatment._id) }}">
-            <!-- client selection -->
-			<div class="row">
-				<div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix brown-text text-darken-4"></i>
-					<select id="user_id" name="user_id" class="validate" required>
-                        <option value="" disabled>Choose Client</option>
-                    {% for user in users %}
-                        {% if user.user_id == treatment.client_id | int %}
-                            <option value="{{ user.id }}" selected>{{ user.fullname }}</option>
-                        {% else %}
-                            <option value="{{ user.id }}">{{ user.fullname }}</option>
-                        {% endif %}
-                    {% endfor %}
-                    </select>
-					<label for="client_name">Treatment Client</label>
-				</div>
-			</div>
+            <!-- treatment client -->
+            <div class="row hide">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix brown-text text-darken-4"></i>
+                    <input id="treatment_client" name="treatment_client" minlength="5" maxlength="50"
+                        type="text" class="validate" value="{{ treatment.treatment_client }}" required>
+                    <label for="treatment_client">Treatment Client Name</label>
+                </div>
+            </div>
+            <!-- treatment usercopy -->
+            <div class="row ">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix brown-text text-darken-4"></i>
+                    <input id="treatment_usr" name="treatment_usr" minlength="5" maxlength="50"
+                        type="text" class="validate" value="{{ treatment.treatment_usr }}" required>
+                    <label for="treatment_usr">Treatment usercopy</label>
+                </div>
+            </div>
             <!-- treatment name -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix brown-text text-darken-4"></i>
                     <input id="treatment_name" name="treatment_name" minlength="5" maxlength="50"
-                        value="{{ treatment.treatment_name }}" type="text" class="validate" required>
+                        type="text" class="validate" value="{{ treatment.treatment_name }}" required>
                     <label for="treatment_name">Treatment Name</label>
                 </div>
             </div>
-            <!-- treatment description -->
+            <!-- treatment subjective history -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix brown-text text-darken-4"></i>
-                    <textarea id="treatment_description" name="treatment_description" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required>
-                        {{- treatment.treatment_description -}}
-                    </textarea>
-                    <label for="treatment_description">Treatment Description</label>
+                    <i class="fas fa-history prefix brown-text text-darken-4"></i>
+                    <input id="treatment_subjective" name="treatment_subjective" minlength="5"
+                        maxlength="200" type="text" class="materialize-textarea validate" 
+                        value="{{ treatment.treatment_subjective }}" required></input>
+                    <label for="treatment_subjective">Subjective History</label>
                 </div>
             </div>
-            <!-- Treatment date picker -->
+
+            <!-- treatment observation -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-eye prefix brown-text text-darken-4"></i>
+                    <textarea id="treatment_observation" name="treatment_observation" minlength="5"
+                        maxlength="200" class="materialize-textarea validate" required>{{ treatment.treatment_observation }}</textarea>
+                    <label for="treatment_observation">Observations</label>
+                </div>
+            </div>
+            
+            <!-- Treatment Range of Movement -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-drafting-compass prefix brown-text text-darken-4"></i>
+                    <textarea id="treatment_rom" name="treatment_rom" minlength="5"
+                    maxlength="200" class="materialize-textarea validate" required>{{ treatment.treatment_rom }}</textarea>
+                    <label for="treatment_rom">Range of Movement</label>
+                </div>
+            </div>
+            
+            <!-- treatment treatment_special_tests -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-vial prefix brown-text text-darken-4"></i>
+                    <textarea id="treatment_special_tests" name="treatment_special_tests" minlength="5"
+                    maxlength="200" class="materialize-textarea validate" required>{{ treatment.treatment_special_tests }}</textarea>
+                    <label for="treatment_special_tests">Special/Functional Tests</label>
+                </div>
+            </div>
+            
+            <!-- treatment Palpation -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-hands prefix brown-text text-darken-4"></i>
+                    <textarea id="treatment_palpation" name="treatment_palpation" minlength="5"
+                        maxlength="200" class="materialize-textarea validate" required>{{ treatment.treatment_palpation }}</textarea>
+                    <label for="treatment_palpation">Palpation</label>
+                </div>
+            </div>
+            <!-- Date of treatment picker -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-calendar-alt prefix brown-text text-darken-4"></i>
-                    <input id="treatment_date" name="treatment_date" type="text"
-                        value="{{ treatment.treatment_date }}" class="datepicker validate" required>
+                    <input id="treatment_date" name="treatment_date" type="text" class="datepicker validate" value="{{ treatment.treatment_date }}" required>
                     <label for="treatment_date">Treatment Date</label>
                 </div>
             </div>
-            <!-- is follow up toggle -->
+            <!-- Follow Up required toggle -->
 			<div class="row">
 				<div class="input-field col s12">
 					<div class="switch">

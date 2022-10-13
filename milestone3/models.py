@@ -1,18 +1,6 @@
 from milestone3 import db
 
 
-
-# class Therapist(db.Model):
-#     # schema for the Client model
-#     id = db.Column(db.Integer, primary_key=True)
-#     therapist_name = db.Column(db.String(25), unique=True, nullable=False)
-#     clients = db.relationship("Client", backref="therapist", cascade="all, delete", lazy=True)
-
-#     def __repr__(self):
-#         # __repr__ to represent itself in the form of a string
-#         return self.therapist_name
-
-
 class Client(db.Model):
     # schema for the Client model
     id = db.Column(db.Integer, primary_key=True)
@@ -20,8 +8,8 @@ class Client(db.Model):
     client_dob = db.Column(db.Date, nullable=False)
     client_email = db.Column(db.String(30), nullable=False)
     client_phone = db.Column(db.String(15), nullable=False)
-    treatments = db.relationship("Treatment", backref="client", cascade="all, delete", lazy=True)
-    # therapist_id = db.Column(db.Integer, db.ForeignKey("therapist.id", ondelete="CASCADE"), nullable=False)
+    treatments = db.relationship(
+        "Treatment", backref="client", cascade="all, delete", lazy=True)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
@@ -40,8 +28,9 @@ class Treatment(db.Model):
     treatment_palpation = db.Column(db.Text, nullable=False)
     treatment_rom = db.Column(db.Text, nullable=False)
     treatment_special_tests = db.Column(db.Text, nullable=False)
-    client_id = db.Column(db.Integer, db.ForeignKey("client.id", ondelete="CASCADE"), nullable=False)
-    
+    client_id = db.Column(db.Integer, db.ForeignKey(
+        "client.id", ondelete="CASCADE"), nullable=False)
+
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
         return "#{0} - Treatment: {1} | Follow Up: {2}".format(

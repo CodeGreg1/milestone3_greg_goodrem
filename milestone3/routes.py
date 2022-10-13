@@ -5,14 +5,16 @@ from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from milestone3 import app, db, mongo
 from milestone3.models import User, Client, Treatment
-# , Therapist
 
 
 @app.route("/")
 @app.route("/get_treatments")
 def get_treatments():
+    clients = list(Client.query.order_by(Client.client_name).all())
     treatments = list(mongo.db.treatments.find())
-    return render_template("treatments.html", treatments=treatments)
+    name = User.fullname
+    return render_template(
+        "treatments.html", treatments=treatments, clients=clients)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -30,23 +32,21 @@ def add_treatment():
         
     if request.method == "POST":
         follow_up = "on" if request.form.get("follow_up") else "off"
-        #"user_id": request.form.get("user_id"),
         treatment = {
             "client_id": request.form.get("client_id"),
-            "treatment_client":request.form.get("treatment_client"),
+            "treatment_client": request.form.get("treatment_client"),
+            "treatment_usr": request.form.get("treatment_usr"),
             "treatment_name": request.form.get("treatment_name"),
             "treatment_subjective": request.form.get("treatment_subjective"),
             "treatment_observation": request.form.get("treatment_observation"),
             "treatment_rom": request.form.get("treatment_rom"),
-            "treatment_special_tests": request.form.get("treatment_special_tests"),
+            "treatment_special_tests": request.form.get(
+                "treatment_special_tests"),
             "treatment_palpation": request.form.get("treatment_palpation"),
             "follow_up": follow_up,
             "treatment_date": request.form.get("treatment_date"),
             "created_by": session["user"]}
         mongo.db.treatments.insert_one(treatment)
-        user = User(
-            fullname=request.form.get("fullname"))
-        
         flash("Treatment Successfully Added")
         return redirect(url_for("get_treatments"))
 
@@ -65,12 +65,14 @@ def edit_treatment(treatment_id):
         follow_up = "on" if request.form.get("follow_up") else "off"
         submit = {
             "client_id": request.form.get("client_id"),
-            "treatment_client":request.form.get("treatment_client"),
+            "treatment_client": request.form.get("treatment_client"),
+            "treatment_usr": request.form.get("treatment_usr"),
             "treatment_name": request.form.get("treatment_name"),
             "treatment_subjective": request.form.get("treatment_subjective"),
             "treatment_observation": request.form.get("treatment_observation"),
             "treatment_rom": request.form.get("treatment_rom"),
-            "treatment_special_tests": request.form.get("treatment_special_tests"),
+            "treatment_special_tests": request.form.get(
+                "treatment_special_tests"),
             "treatment_palpation": request.form.get("treatment_palpation"),
             "follow_up": follow_up,
             "treatment_date": request.form.get("treatment_date"),
@@ -79,7 +81,8 @@ def edit_treatment(treatment_id):
         flash("Treatment Successfully Updated")
 
     users = list(User.query.order_by(User.fullname).all())
-    return render_template("edit_treatment.html", treatment=treatment, users=users)
+    return render_template(
+        "edit_treatment.html", treatment=treatment, users=users)
 
 
 @app.route("/delete_treatment/<treatment_id>")
@@ -164,8 +167,8 @@ def delete_client(user_id):
 def register():
     if request.method == "POST":
         # check if username already exists in db
-        existing_user = User.query.filter(User.user_name == \
-            request.form.get("username").lower()).all()
+        existing_user = User.query.filter(
+            User.user_name == request.form.get("username").lower()).all()
         
         if existing_user:
             flash("Username already exists")
@@ -186,7 +189,8 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for(
+            "profile", username=session["user"]))
 
     return render_template("register.html")
 
@@ -195,9 +199,8 @@ def register():
 def login():
     if request.method == "POST":
         # check if username exists in db
-        existing_user = User.query.filter(User.user_name == \
-            request.form.get("username").lower()).all()
-            #request.form.get("username").lower()).all()
+        existing_user = User.query.filter(
+            User.user_name == request.form.get("username").lower()).all()
 
         if existing_user:
             print(request.form.get("username"))
@@ -223,8 +226,7 @@ def login():
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
-        
+def profile(username):      
     if "user" in session:
         return render_template("profile.html", username=session["user"])
 
