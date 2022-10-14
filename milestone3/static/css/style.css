@@ -24,3 +24,6 @@ main {
 .hide {
     visibility: hidden;
 }
+.edit {
+    margin-right: 10px;
+}

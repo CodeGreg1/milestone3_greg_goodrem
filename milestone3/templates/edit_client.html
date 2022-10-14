@@ -8,7 +8,7 @@
             <!-- client username -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-user-edit prefix brown-text text-darken-4"></i>
                     <input id="user_name" name="user_name" minlength="3" maxlength="25"
                         type="text" value="{{ user.user_name }}" class="validate" required>
                     <label for="user_name">Client Username</label>
@@ -17,16 +17,25 @@
             <!-- client name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-user prefix brown-text text-darken-4"></i>
                     <input id="client_name" name="client_name" minlength="3" maxlength="25"
                         type="text" value="{{ user.fullname }}" class="validate" required>
                     <label for="client_name">Client Name</label>
                 </div>
             </div>
+             <!-- client DOB -->
+             <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-calendar-alt prefix brown-text text-darken-4"></i>
+                    <input id="dob" name="dob" minlength="3" maxlength="25"
+                        type="text" value="{{ user.dob }}" class="validate" required>
+                    <label for="dob">Client Date of Birth</label>
+                </div>
+            </div>
             <!-- client Email -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-envelope prefix brown-text text-darken-4"></i>
                     <input id="email" name="email" minlength="3" maxlength="25"
                         type="text" value="{{ user.email }}" class="validate" required>
                     <label for="email">Client Email</label>
@@ -35,7 +44,7 @@
             <!-- client Phone -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-phone prefix brown-text text-darken-4"></i>
                     <input id="phone" name="phone" minlength="3" maxlength="25"
                         type="text" value="{{ user.phone }}" class="validate" required>
                     <label for="phone">Client Phone</label>

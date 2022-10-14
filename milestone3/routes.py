@@ -10,7 +10,6 @@ from milestone3.models import User, Client, Treatment
 @app.route("/")
 @app.route("/get_treatments")
 def get_treatments():
-    # clients = list(Client.query.order_by(Client.client_name).all())
     treatments = list(mongo.db.treatments.find())
 
     fullname = None
@@ -20,7 +19,7 @@ def get_treatments():
         fullname = the_user.fullname
 
     return render_template(
-        "treatments.html", treatments=treatments, clients=Client,
+        "treatments.html", treatments=treatments,
         fullname=fullname)
 
 
@@ -40,7 +39,7 @@ def add_treatment():
     if request.method == "POST":
         follow_up = "on" if request.form.get("follow_up") else "off"
         treatment = {
-            "client_id": request.form.get("client_id"),
+            "treatment_id": request.form.get("treatment_id"),
             "treatment_client": request.form.get("treatment_client"),
             "treatment_usr": request.form.get("treatment_usr"),
             "treatment_name": request.form.get("treatment_name"),
@@ -73,7 +72,6 @@ def edit_treatment(treatment_id):
         submit = {
             "client_id": request.form.get("client_id"),
             "treatment_client": request.form.get("treatment_client"),
-            "treatment_usr": request.form.get("treatment_usr"),
             "treatment_name": request.form.get("treatment_name"),
             "treatment_subjective": request.form.get("treatment_subjective"),
             "treatment_observation": request.form.get("treatment_observation"),
@@ -84,7 +82,9 @@ def edit_treatment(treatment_id):
             "follow_up": follow_up,
             "treatment_date": request.form.get("treatment_date"),
             "created_by": session["user"]}
-        mongo.db.treatments.update({"_id": ObjectId(treatment_id)}, submit)
+        mongo.db.treatments.replace_one(
+            {"_id": ObjectId(treatment_id)}, submit)
+        return redirect(url_for("get_treatments"))
         flash("Treatment Successfully Updated")
 
     users = list(User.query.order_by(User.fullname).all())

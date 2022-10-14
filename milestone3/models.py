@@ -39,7 +39,7 @@ class Treatment(db.Model):
 
 
 class User(db.Model):
-    # schema for the Task model
+    # schema for the Treatment model
     id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(260), nullable=False)
