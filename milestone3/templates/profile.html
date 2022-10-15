@@ -4,12 +4,16 @@
     <div class="row">
         <div class="col s12 m8 offset-m2">
             <div class="card-panel">
+                <p><strong>{{ username }}</strong> logged in. </p>
                 <h3 class="center-align light-blue-text text-darken-4">
-                    {{ username }}'s Profile
-                
+                    Book your session below
                 </h3>
+                <h3 id="user_fullname" class="">{{ fullname }}</h3>
+                <h3 id="user_email" class="">{{ email }}</h3>
+                <div class="calendly-inline-widget" data-url="https://calendly.com/balancedtraining/sports-massage?hide_gdpr_banner=1" style="width:100%;height:630px;"></div>
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
 
 {% endblock %}

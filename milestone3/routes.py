@@ -233,10 +233,15 @@ def login():
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):      
+def profile(username):
+    fullname = None
     if "user" in session:
-        return render_template("profile.html", username=session["user"])
+        the_user = User.query.filter(User.user_name == session["user"]).first()
+        fullname = the_user.fullname
+        email = the_user.email
 
+        return render_template(
+            "profile.html", username=session["user"], fullname=fullname, email=email)
     return redirect(url_for("login"))
 
 
