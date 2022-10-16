@@ -37,13 +37,23 @@
                 </div>
             </div>
 
-            <!-- treatment name -->
+            <!-- treatment type -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix brown-text text-darken-4"></i>
-                    <input id="treatment_name" name="treatment_name" minlength="5" maxlength="50"
-                        type="text" class="validate" required>
-                    <label for="treatment_name">Treatment Name</label>
+                    <select name="treatment_name" id="treatment_name" type="text" class="validate" required>
+                        <option value="shoulder">Shoulder</option>
+                        <option value="back" selected>Back</option>
+                        <option value="knee" >Knee</option>
+                        <option value="ankle">Ankle</option>
+                        <option value="hip">Hip</option>
+                        <option value="elbow">Elbow</option>
+                        <option value="chest">Chest</option>
+                        <option value="quad">Quad</option>
+                        <option value="hamstring">Hamstring</option>
+                        <option value="arm">Arm</option>
+                    </select>
+                    <label for="treatment_name">General Treatment Area:</label>
                 </div>
             </div>
             <!-- treatment subjective history -->

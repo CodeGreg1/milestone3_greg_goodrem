@@ -27,3 +27,5 @@ COGS.forEach((cog)=>{
             bot.classList.toggle('vis')})})})
         //   May need to be in own script page
 const FULLNAME = document.getElementById("fullname")
+
+// This is the text with the confirmed Appointment date /html/body/div[1]/div/div/div/div/div/div[2]/div/div[2]/text()
