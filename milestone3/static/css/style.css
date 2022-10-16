@@ -31,3 +31,18 @@ main {
 iframe {
     height: 80vh;
 }
+
+.larger {
+    font-size: larger;
+}
+
+nav .brand-logo {
+    font-size: 4.5vw;
+}
+
+.card_panel {
+    padding: 5px, 5px;
+}
+
+.reseter{
+    width: 90px;}

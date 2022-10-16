@@ -12,9 +12,9 @@
                     <label for="query">Search Treatments</label>
                 </div>
                 <div class="col s12 m4">
-                    <a href="{{ url_for('get_treatments') }}" class="red btn text-shadow">Reset</a>
-                    <button type="submit" class="brown darken-1 btn text-shadow">
-                        <i class="fas fa-search left"></i> Search
+                    <a href="{{ url_for('get_treatments') }}" class="red btn text-shadow reseter">Reset</a>
+                    <button type="submit" class="brown darken-1 btn text-shadow reseter">
+                        Search
                     </button>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                     {% endif %}
                 </div>
                 <div class="col s9">
-                    <strong>  {{ treatment.treatment_client }} - {{ treatment.treatment_name }}</strong> : {{ treatment.treatment_date }}
+                    <strong class="larger">  {{ treatment.treatment_client }} - {{ treatment.treatment_name|capitalize }}</strong> : {{ treatment.treatment_date }}
                         {% if treatment.treatment_name|lower == "back" %}
                         <a href="../static/advice/Exercise Advice Sheet - Back.pdf" download>:  Recovery Advice - <i class="fas fa-download"></i></a>
                         {% elif treatment.treatment_name|lower == "shoulder" %}
