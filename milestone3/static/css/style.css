@@ -27,3 +27,7 @@ main {
 .edit {
     margin-right: 10px;
 }
+
+iframe {
+    height: 80vh;
+}
