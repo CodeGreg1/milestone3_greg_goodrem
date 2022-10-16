@@ -41,7 +41,6 @@ def add_treatment():
         treatment = {
             "treatment_id": request.form.get("treatment_id"),
             "treatment_client": request.form.get("treatment_client"),
-            "treatment_usr": request.form.get("treatment_usr"),
             "treatment_name": request.form.get("treatment_name"),
             "treatment_subjective": request.form.get("treatment_subjective"),
             "treatment_observation": request.form.get("treatment_observation"),
