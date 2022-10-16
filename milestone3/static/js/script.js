@@ -28,4 +28,14 @@ COGS.forEach((cog)=>{
         //   May need to be in own script page
 const FULLNAME = document.getElementById("fullname")
 
+FULLNAME.addEventListener('change',function(e){
+  let opttext=FULLNAME.options[FULLNAME.options.selectedIndex].text;
+  console.log(opttext);
+  treatment_client.value = opttext
+})
+// FULLNAME.addEventListener('change',function(e){
+//   let opttext=FULLNAME.options[FULLNAME.options.selectedIndex].text;
+//   console.log(opttext);
+//   treatment_client.value = opttext
+
 // This is the text with the confirmed Appointment date /html/body/div[1]/div/div/div/div/div/div[2]/div/div[2]/text()
