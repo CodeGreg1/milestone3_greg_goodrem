@@ -46,3 +46,19 @@ nav .brand-logo {
 
 .reseter{
     width: 90px;}
+
+.brand-logo {
+    margin:  0 0 10px 10px ;
+}
+
+.nav-wrapper {
+    height: 75px;
+}
+
+label.searchlabel {
+    top: 30px;
+}
+
+label.searchlabel.active {
+    top: -5px;
+}
