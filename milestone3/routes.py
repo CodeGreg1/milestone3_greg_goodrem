@@ -26,7 +26,8 @@ def get_treatments():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
-    treatments = list(mongo.db.treatments.find({"$text": {"$search": query}}))
+    treatments = list(
+        mongo.db.treatments.find({"$text": {"$search": query}}))
     return render_template("treatments.html", treatments=treatments)
 
 
@@ -213,11 +214,11 @@ def login():
             # ensure hashed password matches user input
             if check_password_hash(
                     existing_user[0].password, request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
-                        flash("Welcome, {}".format(
-                            request.form.get("username")))
-                        return redirect(url_for(
-                            "profile", username=session["user"]))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -240,7 +241,8 @@ def profile(username):
         email = the_user.email
 
         return render_template(
-            "profile.html", username=session["user"], fullname=fullname, email=email)
+            "profile.html", username=session["user"],
+            fullname=fullname, email=email)
     return redirect(url_for("login"))
 
 
