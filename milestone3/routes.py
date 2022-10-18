@@ -6,6 +6,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from milestone3 import app, db, mongo
 from milestone3.models import User, Client, Treatment
 
+# @app.template_filter('datetimeformat')
+# def datetimeformat(value, format='%B'):
+#     return value.strftime(format)
+
+# app.jinja_env.filters['datetimeformat'] = datetimeformat
+
 
 @app.route("/")
 @app.route("/get_treatments")
@@ -19,8 +25,7 @@ def get_treatments():
         fullname = the_user.fullname
 
     return render_template(
-        "treatments.html", treatments=treatments,
-        fullname=fullname)
+        "treatments.html", treatments=treatments, fullname=fullname)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -36,7 +41,7 @@ def add_treatment():
     if "user" not in session:
         flash("You need to be logged in to add a treatment")
         return redirect(url_for("get_treatments"))
-        
+
     if request.method == "POST":
         follow_up = "on" if request.form.get("follow_up") else "off"
         treatment = {
@@ -66,7 +71,7 @@ def edit_treatment(treatment_id):
     if "user" not in session or session["user"] != treatment["created_by"]:
         flash("You can only edit your own treatments!")
         return redirect(url_for("get_treatments"))
-        
+
     if request.method == "POST":
         follow_up = "on" if request.form.get("follow_up") else "off"
         submit = {
@@ -99,7 +104,7 @@ def delete_treatment(treatment_id):
     if "user" not in session or session["user"] != treatment["created_by"]:
         flash("You can only delete your own treatments!")
         return redirect(url_for("get_treatments"))
-    
+
     mongo.db.treatments.remove({"_id": ObjectId(treatment_id)})
     flash("Treatment Successfully Deleted")
     return redirect(url_for("get_treatments"))
@@ -148,7 +153,7 @@ def edit_client(user_id):
     if "user" not in session or session["user"] != "gadmin":
         flash("You must be admin to manage clients!")
         return redirect(url_for("get_treatments"))
-    
+
     user = User.query.get_or_404(user_id)
     if request.method == "POST":
         user.fullname = request.form.get("fullname")
@@ -170,17 +175,24 @@ def delete_client(user_id):
     return redirect(url_for("get_clients"))
 
 
+@app.route("/report")
+def report():
+    users = list(User.query.all())
+    treatments = list(mongo.db.treatments.find())
+    return render_template("report.html", treatments=treatments, users=users)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         # check if username already exists in db
         existing_user = User.query.filter(
             User.user_name == request.form.get("username").lower()).all()
-        
+
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
-        
+
         user = User(
             user_name=request.form.get("username").lower(),
             password=generate_password_hash(request.form.get("password")),
@@ -189,7 +201,7 @@ def register():
             email=request.form.get("email"),
             phone=request.form.get("phone")
         )
-        
+
         db.session.add(user)
         db.session.commit()
 

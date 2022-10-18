@@ -13,6 +13,7 @@
 
     <div class="row">
         {% for user in users %}
+            {% if user.fullname|lower != "greg goodrem"|lower %}
             <div class="col s12 m4">
                 <div class="card brown darken-4 text-shadow center-align">
                     <div class="card-content white-text">
@@ -24,6 +25,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         {% endfor %}
     </div>
 

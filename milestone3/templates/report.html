@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table>
+    <thead>
+      <tr>
+          <th>Total Treatments to Date</th>
+          <th>Number of Clients</th>
+          <th>Treatment Area</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>{{ treatments|length }} </td>
+        <td>{{ users|length-1 }}</td>
+        <td>{{ treatments.treatment_name == 'ankle'}}</td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+{% endblock %}
