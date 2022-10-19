@@ -62,3 +62,21 @@ label.searchlabel {
 label.searchlabel.active {
     top: -5px;
 }
+
+.tabletext {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.headcent {
+    text-align: center;
+}
+
+.bold {
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.tnumrep {
+    font-size: 22px;
+}

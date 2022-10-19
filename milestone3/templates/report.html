@@ -1,29 +1,154 @@
 {% extends "base.html" %}
 {% block content %}
 
-<table>
-    <thead>
-      <tr>
-          <th>Total Treatments to Date</th>
-          <th>Number of Clients</th>
-          <th>Treatment Area</th>
-      </tr>
-    </thead>
+{% set list = [] %}
+<!-- {% for treatment in treatments %}
+  {{ treatment.treatment_name }} 
+  {{ list.append(treatment.treatment_name) }}
+{% endfor %} -->
 
+{% set counter = {
+  'shoulder': 0,
+  'back': 0,
+  'knee': 0,
+  'ankle': 0,
+  'hip': 0,
+  'elbow': 0,
+  'chest': 0,
+  'quad': 0,
+  'hamstring': 0,
+  'arm': 0,
+  'other': 0
+  } %}
+
+{% macro increment(dct, key, inc=1)%}
+    {% if dct.update({key: dct[key] + inc}) %} {% endif %}
+{% endmacro %}
+<h3 class="headcent">Client Treatment Summary</h3>
+<div class="row card-panel grey lighten-5 offset-m1">
+  <div class="col m6 ">
+    <table class="striped tabletext">
+      <tbody>
+        <tr>
+          <td> {% for item in list %}
+            {% if item == "shoulder" %}
+              {{ increment(counter, 'shoulder') }}  
+            {% endif %}
+          {% endfor %}
+          How many Shoulder treatments : </td>
+          <td class="bold"> {{ counter.shoulder }}</td>
+        </tr>
+        <tr>
+          <td>{% for item in list %}
+            {% if item == "back" %}
+              {{ increment(counter, 'back') }}  
+            {% endif %}
+          {% endfor %}
+          How many Back treatments : </td>
+          <td class="bold">{{ counter.back }}</td>
+        </tr>
+        <tr>
+          <td>{% for item in list %}
+            {% if item == "knee" %}
+              {{ increment(counter, 'knee') }}  
+            {% endif %}
+          {% endfor %}
+          How many Knee treatments : </td>
+          <td class="bold">{{ counter.knee }}</td>
+        </tr>
+        <tr>
+          <td>{% for item in list %}
+            {% if item == "ankle" %}
+              {{ increment(counter, 'ankle') }}  
+            {% endif %}
+          {% endfor %}
+          How many Ankle treatments :  </td>
+          <td class="bold">{{ counter.ankle }}</td>
+        </tr>
+        <tr>
+          <td>{% for item in list %}
+            {% if item == "hip" %}
+              {{ increment(counter, 'hip') }}  
+            {% endif %}
+          {% endfor %}
+          How many Hip treatments : </td>
+          <td class="bold">{{ counter.hip }}</td>
+        </tr>
+        <tr>
+          <td>{% for item in list %}
+            {% if item == "arm" %}
+              {{ increment(counter, 'arm') }}  
+            {% endif %}
+            {% endfor %}
+            How many Arm treatments : </td>
+          <td class="bold">{{ counter.arm }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> 
+  <div class="col m6">
+    <table class="striped tabletext">
     <tbody>
       <tr>
-        <td>{{ treatments|length }} </td>
-        <td>{{ users|length-1 }}</td>
-        <td>{{ treatments.treatment_name == 'ankle'}}</td>
+        <td> {% for item in list %}
+          {% if item == "elbow" %}
+            {{ increment(counter, 'elbow') }}  
+          {% endif %}
+          {% endfor %}
+          How many Elbow treatments : </td>
+        <td class="bold">{{ counter.elbow }}</td>
       </tr>
       <tr>
-        <td></td>
+        <td>{% for item in list %}
+          {% if item == "chest" %}
+            {{ increment(counter, 'chest') }}  
+          {% endif %}
+          {% endfor %}
+          How many Chest treatments : </td>
+        <td class="bold">{{ counter.chest }}</td>
       </tr>
       <tr>
-        <td></td>
+        <td>{% for item in list %}
+          {% if item == "quad" %}
+            {{ increment(counter, 'quad') }}  
+          {% endif %}
+          {% endfor %}
+          How many Quad treatments : </td>
+        <td class="bold">{{ counter.quad }}</td>
+      </tr>
+      <tr>
+        <td>{% for item in list %}
+          {% if item == "hamstring" %}
+            {{ increment(counter, 'hamstring') }}  
+          {% endif %}
+          {% endfor %}
+          How many Hamstring treatments : </td>
+        <td class="bold">{{ counter.hamstring }}</td>
+      </tr>
+      <tr>
+        <td>{% for item in list %}
+          {% if item == "other" %}
+            {{ increment(counter, 'other') }}  
+          {% endif %}
+          {% endfor %}
+          How many Other treatments : </td>
+        <td class="bold">{{ counter.other }}</td>
       </tr>
     </tbody>
   </table>
-
-
+  </div>
+<table class="centered">
+    <thead>
+      <tr class="bold">
+          <th>Total Treatments to Date</th>
+          <th>Number of Clients</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tnumrep">
+        <td>{{ treatments|length }} </td>
+        <td>{{ users|length-1 }}</td>
+      </tr>
+    </tbody>
+  </table>
 {% endblock %}
