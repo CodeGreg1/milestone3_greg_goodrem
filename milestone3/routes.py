@@ -110,13 +110,16 @@ def add_client():
         flash("You must be admin to manage clients!")
         return redirect(url_for("get_treatments"))
     if request.method == "POST":
-        client = Client(
-            client_name=request.form.get("client_name"),
-            client_dob=request.form.get("client_dob"),
-            client_email=request.form.get("client_email"),
-            client_phone=request.form.get("client_phone"))
-        db.session.add(client)
+        user = User(
+            user_name=request.form.get("username").lower(),
+            password=generate_password_hash(request.form.get("password")),
+            fullname=request.form.get("fullname"),
+            dob=request.form.get("dob"),
+            email=request.form.get("email"),
+            phone=request.form.get("phone"))
+        db.session.add(user)
         db.session.commit()
+        # put the new user into 'session' cookie
         return redirect(url_for("get_clients"))
     return render_template("add_client.html")
 

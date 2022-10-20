@@ -33,6 +33,10 @@ FULLNAME.addEventListener('change',function(e){
   console.log(opttext);
   treatment_client.value = opttext
 })
+
+removeSpaces() {
+    let FULLNAME = FULLNAME.trim()
+}
 // FULLNAME.addEventListener('change',function(e){
 //   let opttext=FULLNAME.options[FULLNAME.options.selectedIndex].text;
 //   console.log(opttext);
