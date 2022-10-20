@@ -34,7 +34,7 @@ FULLNAME.addEventListener('change',function(e){
   treatment_client.value = opttext
 })
 
-removeSpaces() {
+function removeSpaces() {
     let FULLNAME = FULLNAME.trim()
 }
 // FULLNAME.addEventListener('change',function(e){
