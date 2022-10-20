@@ -132,7 +132,13 @@ def edit_client(user_id):
         return redirect(url_for("get_treatments"))
     user = User.query.get_or_404(user_id)
     if request.method == "POST":
-        user.fullname = request.form.get("fullname")
+        user = User(
+            user_name=request.form.get("username"),
+            # password=generate_password_hash(request.form.get("password")),
+            fullname=request.form.get("fullname"),
+            dob=request.form.get("dob"),
+            email=request.form.get("email"),
+            phone=request.form.get("phone"))
         db.session.commit()
         return redirect(url_for("get_clients"))
     return render_template(
