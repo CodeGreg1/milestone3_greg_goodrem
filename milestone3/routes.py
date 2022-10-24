@@ -89,7 +89,7 @@ def delete_treatment(treatment_id):
     if "user" not in session or session["user"] != treatment["created_by"]:
         flash("You can only delete your own treatments!")
         return redirect(url_for("get_treatments"))
-    mongo.db.treatments.remove({"_id": ObjectId(treatment_id)})
+    mongo.db.treatments.delete_one({"_id": ObjectId(treatment_id)})
     flash("Treatment Successfully Deleted")
     return redirect(url_for("get_treatments"))
 
@@ -138,15 +138,12 @@ def edit_client(user_id):
             "fullname": request.form.get("fullname"),
             "dob": request.form.get("dob"),
             "email": request.form.get("email"),
-            "phone": request.form.get("phone")
-        }
-        mongo.db.users.update({"_id": ObjectId(user_id)}, submit)
-        flash("user Successfully Updated")
+            "phone": request.form.get("phone")}
+        mongo.db.users.replace_one(
+            {"_id": ObjectId(user_id)}, submit)
+        flash("Successfully Updated")
         return redirect(url_for("get_clients"))
-
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
- 
-    flash("Updated")
     return render_template(
         "edit_client.html", treatments=treatments, user=user)
 
@@ -156,7 +153,7 @@ def delete_client(user_id):
     if session["user"] != "gadmin":
         flash("You must be admin to manage clients!")
         return redirect(url_for("get_treatments"))
-    mongo.db.users.remove({"_id": ObjectId(user_id)})
+    mongo.db.users.delete_one({"_id": ObjectId(user_id)})
     flash("Client Successfully Deleted")
     # user = User.query.get_or_404(user_id)
     # db.session.delete(user)
@@ -221,7 +218,7 @@ def login():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                         session["user"] = request.form.get("username").lower()
-                        flash("Welcome, {}".format(
+                        flash("Welcome {} logged in.".format(
                             request.form.get("username")))
                         return redirect(url_for('get_treatments'))
             else:
@@ -239,20 +236,8 @@ def login():
 def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})
-    # fullname = mongo.db.users.find_one(
-    #     {"fullname": session["user"]})["fullname"]
-
     if session["user"]:
         return render_template("profile.html", username=username)
-        # , fullname=fullname, email=email)
-    # fullname = None
-    # if "user" in session:
-    #     the_user = User.query.filter(User.user_name == session["user"]).first()
-    #     fullname = the_user.fullname
-    #     email = the_user.email
-    #     return render_template(
-    #         "profile.html", username=session["user"],
-    #         fullname=fullname, email=email)
     return redirect(url_for("login"))
 
 

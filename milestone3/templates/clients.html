@@ -12,6 +12,7 @@
     </div>
     <div class="row">
             {% for user in users %}
+            {% if user.username != "gadmin" %}
             <div class="col s12 m4">
                 <div class="card brown darken-4 text-shadow center-align">
                     <div class="card-content white-text">
@@ -23,6 +24,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
             {% endfor %}
     </div>
 

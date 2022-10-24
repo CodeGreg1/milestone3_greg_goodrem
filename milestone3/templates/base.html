@@ -20,12 +20,11 @@
 				<a href="{{ url_for('get_treatments') }}" class="brand-logo">Treatment Manager</a>
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
-					<li><a href="{{ url_for('get_treatments') }}">Home</a></li>
+	    				<li><a href="{{ url_for('get_treatments') }}">Home</a></li>
                     {% if session.user %}
                     {% if session.user|lower != "gadmin"|lower %}
-                    <li></li>
+                        <li><a href="{{ url_for('profile', username=session['user']) }}">Booking</a></li>
                     {% endif %}
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">Booking</a></li>
                         {% if session.user|lower == "gadmin"|lower %}
                         <li><a href="{{ url_for('get_clients') }}">Manage Clients</a></li>
                         <li><a href="{{ url_for('add_treatment') }}">New Treatment</a></li>
