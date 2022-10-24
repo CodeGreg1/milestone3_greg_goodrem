@@ -100,8 +100,10 @@ def get_clients():
         flash("You must be admin to manage clients!")
         return redirect(url_for("get_treatments"))
 
-    users = list(mongo.db.users.find())
-    return render_template("clients.html", Users=users)
+    users = mongo.db.users.find().sort("fullname", 1)
+    # user = mongo.db.users.find_one()
+
+    return render_template("clients.html", users=users)
 
 
 @app.route("/add_client", methods=["GET", "POST"])
@@ -119,22 +121,12 @@ def add_client():
             "phone": request.form.get("phone")
         }
         mongo.db.users.insert_one(user)
-        # user = User(
-        #     user_name=request.form.get("username").lower(),
-        #     password=generate_password_hash(request.form.get("password")),
-        #     fullname=request.form.get("fullname"),
-        #     dob=request.form.get("dob"),
-        #     email=request.form.get("email"),
-        #     phone=request.form.get("phone"))
-        # db.session.add(user)
-        # db.session.commit()
-
         # put the new user into 'session' cookie
         return redirect(url_for("get_clients"))
     return render_template("add_client.html")
 
 
-@app.route("/edit_client/<int:user_id>", methods=["GET", "POST"])
+@app.route("/edit_client/<user_id>", methods=["GET", "POST"])
 def edit_client(user_id):
     treatments = list(mongo.db.treatments.find())
     if "user" not in session or session["user"] != "gadmin":
@@ -153,22 +145,13 @@ def edit_client(user_id):
         return redirect(url_for("get_clients"))
 
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
-    # user = User.query.get_or_404(user_id)
-    # if request.method == "POST":
-    #     User.user_name = request.form.get("user_name")
-    #     User.fullname = request.form.get("fullname")
-    #     User.dob = request.form.get("dob")
-    #     User.email = request.form.get("email")
-    #     User.phone = request.form.get("phone")
-    #     db.session.commit()
+ 
     flash("Updated")
-    #     print("post commit")
-    #     return redirect(url_for("get_clients"))
     return render_template(
         "edit_client.html", treatments=treatments, user=user)
 
 
-@app.route("/delete_client/<int:user_id>")
+@app.route("/delete_client/<user_id>")
 def delete_client(user_id):
     if session["user"] != "gadmin":
         flash("You must be admin to manage clients!")
