@@ -31,15 +31,24 @@ const FULLNAME = document.getElementById("fullname")
 FULLNAME.addEventListener('change',function(e){
   let opttext=FULLNAME.options[FULLNAME.options.selectedIndex].text;
   console.log(opttext);
-  treatment_client.value = opttext
+  let nameArr = opttext.split("-")
+
+  let tCliName = nameArr[0].trim()
+  let tCliUsr = nameArr[1].trim().slice(1,-1)
+
+  console.log(tCliName);
+  console.log(tCliUsr);
+
+  treatment_client.value = tCliName
+  tusername.value = tCliUsr
 })
 
-function removeSpaces() {
-    let FULLNAME = FULLNAME.trim()
-}
 // FULLNAME.addEventListener('change',function(e){
 //   let opttext=FULLNAME.options[FULLNAME.options.selectedIndex].text;
 //   console.log(opttext);
 //   treatment_client.value = opttext
+let bookingInfo = document.querySelector(".J6OThpvEmEUa1wPmQ9tL.XZiDpbDeP43TyKu02OUE")
+let upcoming = document.querySelector(".upcoming-booking")
+
 
 // This is the text with the confirmed Appointment date /html/body/div[1]/div/div/div/div/div/div[2]/div/div[2]/text()

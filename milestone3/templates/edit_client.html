@@ -66,18 +66,27 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-user-edit prefix brown-text text-darken-4"></i>
-                    <input id="user_name" name="user_name" minlength="3" maxlength="25"
-                        type="text" value="{{ user.user_name }}" class="validate" required>
-                    <label for="user_name">Client Username</label>
+                    <input id="username" name="username" minlength="3" maxlength="25"
+                        type="text" value="{{ user.username }}" class="validate" required>
+                    <label for="username">Client Username</label>
+                </div>
+            </div>
+             <!-- password -->
+             <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-user-lock prefix brown-text text-darken-4"></i>
+                    <input id="password" name="password" type="password" minlength="5"
+                        maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" value="{{ user.password }}" required>
+                    <label for="password">Password</label>
                 </div>
             </div>
             <!-- client name -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-user prefix brown-text text-darken-4"></i>
-                    <input id="client_name" name="client_name" minlength="3" maxlength="25"
+                    <input id="fullname" name="fullname" minlength="3" maxlength="25"
                         type="text" value="{{ user.fullname }}" class="validate" required>
-                    <label for="client_name">Client Name</label>
+                    <label for="fullname">Client Name</label>
                 </div>
             </div>
              <!-- client DOB -->

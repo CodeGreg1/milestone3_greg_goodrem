@@ -25,8 +25,8 @@
     {% if treatments|length > 0 %}
     <ul class="collapsible">
         {% for treatment in treatments %}
+        {% if treatment.tusername|lower == session["user"] or session["user"] == "gadmin" %}
         <li>
-        {% if fullname|lower == treatment.treatment_client|lower or session["user"] == "gadmin" %}
             <div class="collapsible-header white-text brown darken-4 text-shadow">
                 <div class="col s3">
                     <i class="fas fa-caret-down"></i>
@@ -35,15 +35,15 @@
                     {% endif %}
                 </div>
                 <div class="col s9">
-                    <strong class="larger">  {{ treatment.treatment_client }} - {{ treatment.treatment_name|capitalize }}</strong> : {{ treatment.treatment_date }}
+                    <strong class="larger">  {{ treatment.treatment_client }} - {{ treatment.treatment_name|capitalize }} </strong> : {{ treatment.treatment_date }} :
                         {% if treatment.treatment_name|lower == "back" %}
-                        <a href="../static/advice/Exercise Advice Sheet - Back.pdf" download>:  Recovery Advice - <i class="fas fa-download"></i></a>
+                        <a class="right padleft" href="../static/advice/Exercise Advice Sheet - Back.pdf" download>Recovery Advice - <i class="fas fa-download"></i></a>
                         {% elif treatment.treatment_name|lower == "shoulder" %}
-                        <a href="../static/advice/Exercise Advice Sheet - Shoulder.pdf" download>:  Recovery Advice - <i class="fas fa-download"></i></a>
+                        <a class="right padleft" href="../static/advice/Exercise Advice Sheet - Shoulder.pdf" download>Recovery Advice - <i class="fas fa-download"></i></a>
                         {% elif treatment.treatment_name|lower == "knee" %}
-                        <a href="../static/advice/Exercise Advice Sheet - Knee.pdf" download>:  Recovery Advice - <i class="fas fa-download"></i></a>
+                        <a class="right padleft" href="../static/advice/Exercise Advice Sheet - Knee.pdf" download>Recovery Advice - <i class="fas fa-download"></i></a>
                         {% else %}
-                        <a href="../static/advice/Exercise Advice Sheet.pdf" download>:  Recovery Advice - <i class="fas fa-download"></i></a>
+                        <a class="right padleft" href="../static/advice/Exercise Advice Sheet.pdf" download>Recovery Advice - <i class="fas fa-download"></i></a>
 
                         {% endif %}
                     {% if treatment.follow_up == "on" %}
@@ -71,8 +71,8 @@
                     </div>
                 </div>
             </div>
-        {% endif %}
         </li>
+        {% endif %}
         {% endfor %}
     </ul>
     {% else %}

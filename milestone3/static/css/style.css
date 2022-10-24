@@ -80,3 +80,7 @@ label.searchlabel.active {
 .tnumrep {
     font-size: 22px;
 }
+
+.padleft {
+    padding-left: 5px;
+}

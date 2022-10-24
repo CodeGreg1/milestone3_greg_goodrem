@@ -4,11 +4,12 @@
     <div class="row">
         <div class="col s12 m12">
             <div class="card-panel">
-                <p><strong>{{ username }}</strong> logged in. </p>
+                <p><strong>{{ username.fullname }}</strong> logged in. </p>
+                <h2 class="upcoming-booking"></h2>
                 <h3 class="center-align light-blue-text text-darken-4">
                     Book your session below
                 </h3>
-                <iframe src="https://calendly.com/balancedtraining/sports-massage?&amp;embed_type=Inline&amp;hide_gdpr_banner=1&amp;name={{ fullname }}&amp;email={{ email}}" 
+                <iframe src="https://calendly.com/balancedtraining/sports-massage?&amp;embed_type=Inline&amp;hide_gdpr_banner=1&amp;name={{ username.fullname }}&amp;email={{ username.email }}" 
                 width="100%" height="100%" frameborder="0"></iframe>
              </div>
         </div>
