@@ -24,7 +24,7 @@
     {% endif %}
     {% if treatments|length > 0 %}
     <ul class="collapsible">
-        {% for treatment in treatments %}
+        {% for treatment in treatments|sort(attribute='treatment_client') %}
         {% if treatment.tusername|lower == session["user"] or session["user"] == "gadmin" %}
         <li>
             <div class="collapsible-header white-text brown darken-4 text-shadow">

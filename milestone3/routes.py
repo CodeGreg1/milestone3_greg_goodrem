@@ -155,16 +155,11 @@ def delete_client(user_id):
         return redirect(url_for("get_treatments"))
     mongo.db.users.delete_one({"_id": ObjectId(user_id)})
     flash("Client Successfully Deleted")
-    # user = User.query.get_or_404(user_id)
-    # db.session.delete(user)
-    # db.session.commit()
-    # mongo.db.treatments.delete_many({"user_id": str(user_id)})
     return redirect(url_for("get_clients"))
 
 
 @app.route("/report")
 def report():
-    # users = list(User.query.all())
     users = list(mongo.db.users.find())
     treatments = list(mongo.db.treatments.find())
     return render_template("report.html", treatments=treatments, users=users)
@@ -176,7 +171,6 @@ def register():
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username")})
-            # User.user_name == request.form.get("username").lower()).all()
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
@@ -191,15 +185,6 @@ def register():
         }
         mongo.db.users.insert_one(register)
 
-        # user = User(
-        #     user_name=request.form.get("username").lower(),
-        #     password=generate_password_hash(request.form.get("password")),
-        #     fullname=request.form.get("fullname"),
-        #     dob=request.form.get("dob"),
-        #     email=request.form.get("email"),
-        #     phone=request.form.get("phone"))
-        # db.session.add(user)
-        # db.session.commit()
         # # put the new user into 'session' cookie
         session["user"] = request.form.get("username")
         flash("Registration Successful!")

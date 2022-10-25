@@ -2,10 +2,9 @@
 {% block content %}
 
 {% set list = [] %}
-<!-- {% for treatment in treatments %}
-  {{ treatment.treatment_name }} 
-  {{ list.append(treatment.treatment_name) }}
-{% endfor %} -->
+{% for treatment in treatments %}
+ <p class="hide"> {{ list.append(treatment.treatment_name)}} </p>
+{% endfor %}
 
 {% set counter = {
   'shoulder': 0,
