@@ -38,6 +38,9 @@ iframe {
 
 nav .brand-logo {
     font-size: 4.5vw;
+    margin: 0px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .card_panel {
@@ -120,4 +123,18 @@ body > main > div > div:nth-child(2) > div.col {
     /* transform: translateX(50%);
     left: -50%;
     background-color: brown; */
+}
+
+.bannersm {
+    width: 100%;
+}
+
+.steps {
+    margin: 0 0px;
+    width: 200px;
+}
+.stepTitle {
+    font-size: 40px;
+    text-shadow: 2px 2px 2px grey;
+    margin-bottom: 15px;
 }

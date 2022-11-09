@@ -16,6 +16,11 @@ document.addEventListener("DOMContentLoaded", function() {
     M.Collapsible.init(collapsibles);
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.carousel');
+    var instances = M.Carousel.init(elems, options);
+});
+
 // const COGS = document.querySelectorAll('.fa-cog')
 // const BOTTOM_CARD = document.querySelectorAll('.card-action.cog')
 

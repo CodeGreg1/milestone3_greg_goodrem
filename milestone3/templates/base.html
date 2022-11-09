@@ -17,7 +17,7 @@
         <!-- top navbar -->
 		<nav class="nav-extended text-shadow topnav darken-1">
 			<div class="nav-wrapper">
-				<a href="{{ url_for('get_treatments') }}" class="brand-logo">Treatment Manager</a>
+				<a href="{{ url_for('get_treatments') }}" class="brand-logo">Sports Therapy App</a>
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
 	    				<li><a href="{{ url_for('get_treatments') }}">Home</a></li>
@@ -41,7 +41,7 @@
 
         <!-- mobile sidenav -->
 		<ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align brown-text text-darken 4">Treatment Manager</h4></li>
+            <li><h4 class="center-align brown-text text-darken 4">Sports Therapy App</h4></li>
             <li><a href="{{ url_for('get_treatments') }}">Home</a></li>
             {% if session.user %}
                 {% if session.user|lower != "gadmin"|lower %}

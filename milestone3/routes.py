@@ -232,3 +232,9 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/home")
+def home():
+    return render_template(
+        "home.html")
