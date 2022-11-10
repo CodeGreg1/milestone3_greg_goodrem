@@ -8,6 +8,12 @@ from milestone3.models import Treatment, User
 
 
 @app.route("/")
+@app.route("/home")
+def home():
+    return render_template(
+        "home.html")
+
+
 @app.route("/get_treatments")
 def get_treatments():
     treatments = list(mongo.db.treatments.find())
@@ -232,9 +238,3 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
-
-
-@app.route("/home")
-def home():
-    return render_template(
-        "home.html")
