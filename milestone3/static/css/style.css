@@ -37,10 +37,8 @@ iframe {
 }
 
 nav .brand-logo {
-    font-size: 4.5vw;
+    font-size: 3.7vw;
     margin: 0px;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .card_panel {
@@ -50,7 +48,7 @@ nav .brand-logo {
 .reseter{
     width: 90px;}
 
-.brand-logo {
+a.brand-logo {
     margin:  0 0 10px 10px ;
 }
 
@@ -138,3 +136,47 @@ body > main > div > div:nth-child(2) > div.col {
     text-shadow: 2px 2px 2px grey;
     margin-bottom: 15px;
 }
+
+.gap {
+    margin: 10px 0;
+}
+
+a.btn.red.lighten-1 {
+    width: 101px;
+    margin: 5px 0;
+}
+
+div.card-content.white-text {
+    padding: 10px 10px 0 10px;
+    height: 80px;
+    justify-content: center;
+    text-align: center;
+}
+
+a.btn-large.red.text-shadow{
+    width: 190px;
+    margin: 5px 0;
+}
+
+.eddel {
+    width: 70px;
+    padding: 0;
+    margin: 5px;
+}
+
+div.col.s2 {
+    margin-left: auto;
+    display: flex;
+}
+
+
+@media screen and (max-width: 500px) {
+    a.brand-logo {
+        font-size: 16px;
+    }
+    div.col.s2 {
+    margin-left: auto;
+    display:grid;
+    }
+}
+

@@ -9,8 +9,8 @@
             <div class="row hide">
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix brown-text text-darken-4"></i>
-                    <input id="treatment_client" name="treatment_client" minlength="5" maxlength="50"
-                        type="text" class="validate" value="{{ treatment.treatment_client }}" required>
+                    <input id="treatment_client" name="treatment_client" maxlength="50"
+                        type="text" class="validate" value="{{ treatment.treatment_client }}">
                     <label for="treatment_client">Treatment Client Name</label>
                 </div>
             </div>
@@ -18,8 +18,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix brown-text text-darken-4"></i>
-                    <input id="treatment_name" name="treatment_name" minlength="5" maxlength="50"
-                        type="text" class="validate" value="{{ treatment.treatment_name }}" required>
+                    <input id="treatment_name" name="treatment_name" maxlength="50"
+                        type="text" class="validate" value="{{ treatment.treatment_name }}">
                     <label for="treatment_name">Treatment Area</label>
                 </div>
             </div>
@@ -27,9 +27,9 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-history prefix brown-text text-darken-4"></i>
-                    <input id="treatment_subjective" name="treatment_subjective" minlength="5"
+                    <input id="treatment_subjective" name="treatment_subjective"
                         maxlength="200" type="text" class="materialize-textarea validate" 
-                        value="{{ treatment.treatment_subjective }}" required></input>
+                        value="{{ treatment.treatment_subjective }}"></input>
                     <label for="treatment_subjective">Subjective History</label>
                 </div>
             </div>
@@ -38,8 +38,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-eye prefix brown-text text-darken-4"></i>
-                    <textarea id="treatment_observation" name="treatment_observation" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required>{{ treatment.treatment_observation }}</textarea>
+                    <textarea id="treatment_observation" name="treatment_observation"
+                        maxlength="200" class="materialize-textarea validate">{{ treatment.treatment_observation }}</textarea>
                     <label for="treatment_observation">Observations</label>
                 </div>
             </div>
@@ -48,8 +48,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-drafting-compass prefix brown-text text-darken-4"></i>
-                    <textarea id="treatment_rom" name="treatment_rom" minlength="5"
-                    maxlength="200" class="materialize-textarea validate" required>{{ treatment.treatment_rom }}</textarea>
+                    <textarea id="treatment_rom" name="treatment_rom" 
+                    maxlength="200" class="materialize-textarea validate">{{ treatment.treatment_rom }}</textarea>
                     <label for="treatment_rom">Range of Movement</label>
                 </div>
             </div>
@@ -58,8 +58,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-vial prefix brown-text text-darken-4"></i>
-                    <textarea id="treatment_special_tests" name="treatment_special_tests" minlength="5"
-                    maxlength="200" class="materialize-textarea validate" required>{{ treatment.treatment_special_tests }}</textarea>
+                    <textarea id="treatment_special_tests" name="treatment_special_tests" 
+                    maxlength="200" class="materialize-textarea validate">{{ treatment.treatment_special_tests }}</textarea>
                     <label for="treatment_special_tests">Special/Functional Tests</label>
                 </div>
             </div>
@@ -68,8 +68,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-hands prefix brown-text text-darken-4"></i>
-                    <textarea id="treatment_palpation" name="treatment_palpation" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required>{{ treatment.treatment_palpation }}</textarea>
+                    <textarea id="treatment_palpation" name="treatment_palpation"
+                        maxlength="200" class="materialize-textarea validate">{{ treatment.treatment_palpation }}</textarea>
                     <label for="treatment_palpation">Palpation</label>
                 </div>
             </div>
@@ -77,7 +77,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-calendar-alt prefix brown-text text-darken-4"></i>
-                    <input id="treatment_date" name="treatment_date" type="text" class="datepicker validate" value="{{ treatment.treatment_date }}" required>
+                    <input id="treatment_date" name="treatment_date" type="text" class="datepicker validate" value="{{ treatment.treatment_date }}">
                     <label for="treatment_date">Treatment Date</label>
                 </div>
             </div>

@@ -216,29 +216,21 @@
             <div class="collapsible-header white-text brown darken-4 text-shadow">
                 <div class="col s3">
                     <i class="fas fa-caret-down"></i>
-                    {% if session.user|lower == treatment.created_by|lower %}
-                    <a href="{{ url_for('edit_treatment', treatment_id=treatment._id) }}" class="btn-small green lighten-1 edit">Edit</a>
-                    <a href="{{ url_for('delete_treatment', treatment_id=treatment._id) }}" class="btn-small red lighten-1 edit">Delete</a>
-                    {% endif %}
                 </div>
-                <div class="col s9">
+                <div class="col s7">
                     <strong class="larger">  {{ treatment.treatment_client }} - {{ treatment.treatment_name|capitalize }}</strong> : {{ treatment.treatment_date }}
-                        {% if treatment.treatment_name|lower == "back" %}
-                        <a href="../static/advice/Exercise Advice Sheet - Back.pdf" download>:  Recovery Advice - <i class="fas fa-download"></i></a>
-                        {% elif treatment.treatment_name|lower == "shoulder" %}
-                        <a href="../static/advice/Exercise Advice Sheet - Shoulder.pdf" download>:  Recovery Advice - <i class="fas fa-download"></i></a>
-                        {% elif treatment.treatment_name|lower == "knee" %}
-                        <a href="../static/advice/Exercise Advice Sheet - Knee.pdf" download>:  Recovery Advice - <i class="fas fa-download"></i></a>
-                        {% else %}
-                        <a href="../static/advice/Exercise Advice Sheet.pdf" download>:  Recovery Advice - <i class="fas fa-download"></i></a>
-
-                        {% endif %}
+                        
                     {% if treatment.follow_up == "on" %}
                     <i class="fas fa-exclamation-circle brown-text text-lighten-2 tooltipped"
                         data-position="right" data-tooltip="URGENT!"></i>
                     {% endif %}
-                   
                 </div>
+                <div class="col s2">
+                  {% if session.user|lower == treatment.created_by|lower %}
+                  <a href="{{ url_for('edit_treatment', treatment_id=treatment._id) }}" class="btn-small green lighten-1 edit eddel">Edit</a>
+                  <a href="{{ url_for('delete_treatment', treatment_id=treatment._id) }}" class="btn-small red lighten-1 edit eddel">Delete</a>
+                  {% endif %}
+              </div>
             </div>
             <div class="collapsible-body">
                 <div class="row">
