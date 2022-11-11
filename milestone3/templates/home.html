@@ -24,21 +24,24 @@
     <div class="col s12 stepTitle center-align">How it works</div>
     <div class="grid-example col s12 m6 l4 center-align">
       <a href="{{ url_for('register') }}">
-        <img class="steps" src="../static/images/1.png" alt="Step 1 Book Appointment">
+        <img class="steps" src="../static/images/1.jpg" alt="Step 1 Book Appointment">
       </a>
     </div>
     <div class="grid-example col s12 m6 l4 center-align">
-      <img class="steps" src="../static/images/2.png" alt="Step 2 Attend Appointment">
+      <img class="steps" src="../static/images/2.jpg" alt="Step 2 Attend Appointment">
     </div>
     <div class="grid-example col s12 m6 l4 center-align">
-      <img class="steps" src="../static/images/3.png" alt="Step 3 Personalised Rehab plan">
+      <img class="steps" src="../static/images/3.jpg" alt="Step 3 Personalised Rehab plan">
     </div>
   </div>
+
+  <a href="{{ url_for('register') }}" class="waves-effect waves-light btn-large blue darken-4 center cta">Book your appointment here</a>
+
   <div class="stepTitle center-align">Meet the Team</div>
   <div class="row">
     <div class="col s12 m6 l4 center">
       <!--The image used has been supplied by Balanced Training-->
-      <img class="profilepic" src="assets/images/sarah_head.webp" alt="Sarah Profile pic">
+      <img class="profilepic" src="../static/images/sarah-sm-elb.jpg" alt="Sarah Profile pic">
       <h4 class="therapists"> <strong>Sarah Goodrem</strong><br> Head Sports Therapist & PT</h4>
       <p>Being a Sports Therapist and Personal trainer gives Sarah an insight into how to both,
          work on an injury and help the healing process and work round the problem to help you achieve 
@@ -47,18 +50,23 @@
     </div>
     <div class="col s12 m6 l4 center">
       <!--The image used has been supplied by Balanced Training-->
-      <img class="profilepic" src="assets/images/greg_head.webp" alt="Greg Profile pic">
+      <img class="profilepic" src="../static/images/ross-spoons.jpg" alt="Greg Profile pic">
       <h4 class="therapists"> <strong>Greg Goodrem</strong><br> Trainee Massage Therapist & PT</h4>
       <p class="center">Having delivered THOUSANDS of hours of personal training since starting in 2005, Greg can 
         help you slowly return to sport and exercise after your treatment.</p>
     </div>
     <div class="col s12 m6 l4 center">
       <!--The image used has been supplied by Balanced Training-->
-      <img class="profilepic" src="assets/images/max_head.JPG" alt="Max profile pic">
+      <img class="profilepic" src="../static/images/max-outside.jpg" alt="Max profile pic">
       <h4 class="therapists"> <strong> Maximus Goodrem</strong> <br>Emotional Support</h4>
       <p>This little guy is an integral part of our team always brings a smile to 
         your face whenever he comes through the gym door carrying a ball. He usually likes to chill
       out in the office upstairs but is on hand for a stroke or to eat a treat.</p>
     </div>
+  </div>
 
+
+  <div class="stepTitle center-align">Where are we?</div>
+
+  <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="280" id="gmap_canvas" src="https://maps.google.com/maps?q=balanced%20training%20ss39qy&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://2piratebay.org"></a><br><style>.mapouter{position:relative;text-align:right;height:275px;width:100%;}</style><a href="https://www.embedgooglemap.net">google map for websites</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:275px;width:100%;}</style></div></div>
 {% endblock %}
