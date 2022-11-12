@@ -15,24 +15,3 @@ document.addEventListener("DOMContentLoaded", function() {
     let collapsibles = document.querySelectorAll(".collapsible");
     M.Collapsible.init(collapsibles);
 });
-
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.carousel');
-    var instances = M.Carousel.init(elems, options);
-});
-
-// const COGS = document.querySelectorAll('.fa-cog')
-// const BOTTOM_CARD = document.querySelectorAll('.card-action.cog')
-
-
-// COGS.forEach((cog)=>{
-//     cog.addEventListener('click', function() {
-//         console.log('Cog clicked')
-//         BOTTOM_CARD.forEach((bot)=>{
-//             bot.classList.toggle('vis')})})})
-
-// let bookingInfo = document.querySelector(".J6OThpvEmEUa1wPmQ9tL.XZiDpbDeP43TyKu02OUE")
-// let upcoming = document.querySelector(".upcoming-booking")
-
-
-// This is the text with the confirmed Appointment date /html/body/div[1]/div/div/div/div/div/div[2]/div/div[2]/text()

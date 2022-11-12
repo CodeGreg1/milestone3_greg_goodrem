@@ -124,7 +124,10 @@ body > main > div > div:nth-child(2) > div.col {
 }
 
 .bannersm {
-    width: 100%;
+    width: 116%;
+    position: relative;
+    left: -8%;
+    right: 0;
 }
 
 .steps {
