@@ -4,6 +4,10 @@ body {
     flex-direction: column;
 }
 
+nav {
+    background-color: darkblue;
+}
+
 main {
     flex: 1 0 auto;
 }
@@ -206,4 +210,36 @@ div.col.s2 {
 
 .imap {
     width: 100%;
+}
+
+.icon-link {
+    color: #000;
+    padding-top: 2px;
+    margin-right: 0;
+    margin: 0;
+    font-size: 35px;
+}
+
+footer {
+    height: 120px;
+    line-height: 1px;
+}
+
+.footer-text-right {
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+
+.footer-left {
+    text-align: left;
+    color: #fff;
+    padding-top: 15px;
+    font-size: 0.8rem;
+}
+.social-bottom {
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
 }

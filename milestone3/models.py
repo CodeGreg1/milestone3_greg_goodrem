@@ -11,26 +11,12 @@ class User(db.Model):
     email = db.Column(db.String(30), nullable=False)
     phone = db.Column(db.String(15), nullable=False)
     treatments = db.relationship(
-        "Treatment", backref="user", cascade="all, delete", lazy=True)
-        
+        "Treatment", backref="users", cascade="all, delete", lazy=True)
+
     def __repr__(self):
         return self.user_name
 
 
-# class Client(db.Model):
-#     # schema for the Client model
-#     id = db.Column(db.Integer, primary_key=True)
-#     client_name = db.Column(db.String(25), unique=True, nullable=False)
-#     client_dob = db.Column(db.Date, nullable=False)
-#     client_email = db.Column(db.String(30), nullable=False)
-#     client_phone = db.Column(db.String(15), nullable=False)
-#     treatments = db.relationship(
-#         "Treatment", backref="client", cascade="all, delete", lazy=True)
-
-
-#     def __repr__(self):
-#         # __repr__ to represent itself in the form of a string
-#         return self.client_name
 class Treatment(db.Model):
     # schema for the Treatment model
     id = db.Column(db.Integer, primary_key=True)
@@ -45,9 +31,9 @@ class Treatment(db.Model):
     treatment_rom = db.Column(db.Text, nullable=True)
     treatment_special_tests = db.Column(db.Text, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey(
-        "user.id", ondelete="CASCADE"), nullable=False)
+        "users.id", ondelete="CASCADE"), nullable=True)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
         return "#{0} - Treatment: {1} | Follow Up: {2}".format(
-            self.id, self.treatment_name, self.follow_up)
+            self.id, self.treatment_name, self.follow_up, self.user_id)

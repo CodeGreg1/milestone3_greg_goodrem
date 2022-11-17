@@ -20,16 +20,16 @@
 				<a href="{{ url_for('home') }}" class="brand-logo">Sports Therapy App</a>
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
-	    				<li><a href="{{ url_for('get_treatments') }}">Treatments</a></li>
                     {% if session.user %}
                     {% if session.user|lower != "gadmin"|lower %}
-                        <li><a href="{{ url_for('profile', username=session['user']) }}">Booking</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">Booking</a></li>
                     {% endif %}
-                        {% if session.user|lower == "gadmin"|lower %}
-                        <li><a href="{{ url_for('get_clients') }}">Manage Clients</a></li>
-                        <li><a href="{{ url_for('add_treatment') }}">New Treatment</a></li>
-                        <li><a href="{{ url_for('report') }}">Report</a></li>
-                        {% endif %}
+                    {% if session.user|lower == "gadmin"|lower %}
+                    <li><a href="{{ url_for('get_clients') }}">Manage Clients</a></li>
+                    <li><a href="{{ url_for('add_treatment') }}">New Treatment</a></li>
+                    <li><a href="{{ url_for('report') }}">Report</a></li>
+                    {% endif %}
+                    <li><a href="{{ url_for('get_treatments') }}">Treatments</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -41,22 +41,24 @@
 
         <!-- mobile sidenav -->
 		<ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align brown-text text-darken 4">Sports Therapy App</h4></li>
-            <li><a href="{{ url_for('get_treatments') }}">Treatments</a></li>
-            {% if session.user %}
-                {% if session.user|lower != "gadmin"|lower %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Booking</a></li>
-                {% endif %}
-                {% if session.user|lower == "gadmin"|lower %}
-                <li><a href="{{ url_for('get_clients') }}">Manage Clients</a></li>
-                <li><a href="{{ url_for('add_treatment') }}">New Treatment</a></li>
-                <li><a href="{{ url_for('report') }}">Report</a></li>
-                {% endif %}
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-            {% else %}
+		    <li>
+		        <h4 class="center-align brown-text text-darken 4">Sports Therapy App</h4>
+		    </li>
+		    {% if session.user %}
+		        {% if session.user|lower != "gadmin"|lower %}
+		            <li><a href="{{ url_for('profile', username=session['user']) }}">Booking</a></li>
+		        {% endif %}
+		        {% if session.user|lower == "gadmin"|lower %}
+                    <li><a href="{{ url_for('get_clients') }}">Manage Clients</a></li>
+                    <li><a href="{{ url_for('add_treatment') }}">New Treatment</a></li>
+                    <li><a href="{{ url_for('report') }}">Report</a></li>
+		        {% endif %}
+                    <li><a href="{{ url_for('get_treatments') }}">Treatments</a></li>
+                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+		    {% else %}
                 <li><a href="{{ url_for('login') }}">Log In</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
-            {% endif %}
+		    {% endif %}
 		</ul>
 	</header>
 
@@ -84,5 +86,51 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block scripts %}
     {% endblock %}
+
+    <!--Footer-->
+    <footer>
+        <div class="row">
+            <div class="col s12 m6 l4 center bg-dark">
+                <!--Footer Left-->
+                <div class="footer-left col s6 m7 ">
+                    <!--The link is the geographical address on google maps used by Balanced Training-->
+                    <a id="" class="left"
+                        href="https://maps.google.com/maps/dir//Balanced+Training+Unit+A3,+Seedbed+Business+Centre+Vanguard+Way+Southend-on-Sea+SS3+9QY/@51.534883,0.7957074,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x47d927b7c1b1e26d:0x8d658dbbe5f7866"
+                        target="_blank">
+                        <p>Unit A3</p>
+                        <p class="">Seedbed Business Centre,</p>
+                        <p>Vanguard Way,</p>
+                        <p>Shoeburyness,</p>
+                        <p>SS3 0JB</p>
+                    </a>
+                    <br>
+                    <p><i class=""></i><a class="" href="Tel:01702382390"> 01702 382390</a></p>
+
+
+                </div>
+                <!--Footer Right-->
+                <div class="col s6 m5 right">
+                    <div class="footer-text-right s6">Follow us on</div>
+                    <div class="">
+                        <div class="social-bottom">
+                            <!--The link is the current Facebook address used by Balanced Training-->
+                            <a class="icon-link" href="https://facebook.com/BalancedPTS/" target="_blank"
+                                title="Link to Facebook">
+                                <i class="fab fa-facebook"></i></a></div>
+                        <div class="social-bottom">
+                            <!--The link is the current instagram address used by Balanced Training-->
+                            <a class="icon-link" href="https://instagram.com/balanced_training" target="_blank"
+                                title="Link to Instagram">
+                                <i class="fab fa-instagram"></i></a></div>
+                        <div class="social-bottom">
+                            <!--The link is the current linkedin address used by Balanced Training-->
+                            <a class="icon-link" href="https://linkedin.com/company/balanced-training/" target="_blank"
+                                title="Link to Linked In">
+                                <i class="fab fa-linkedin icon-size"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

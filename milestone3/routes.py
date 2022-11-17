@@ -37,7 +37,6 @@ def add_treatment():
     if request.method == "POST":
         follow_up = "on" if request.form.get("follow_up") else "off"
         treatment = {
-            "treatment_id": request.form.get("treatment_id"),
             "treatment_client": request.form.get("treatment_client"),
             "tusername": request.form.get("tusername"),
             "treatment_name": request.form.get("treatment_name"),
@@ -54,7 +53,6 @@ def add_treatment():
         flash("Treatment Successfully Added")
         return redirect(url_for("get_treatments"))
     users = mongo.db.users.find().sort("username", 1)
-    # users = list(User.query.order_by(User.fullname).all())
     return render_template("add_treatment.html", users=users)
 
 
@@ -67,7 +65,6 @@ def edit_treatment(treatment_id):
     if request.method == "POST":
         follow_up = "on" if request.form.get("follow_up") else "off"
         submit = {
-            "user_id": request.form.get("user_id"),
             "treatment_client": request.form.get("treatment_client"),
             "treatment_name": request.form.get("treatment_name"),
             "treatment_subjective": request.form.get("treatment_subjective"),
@@ -84,7 +81,6 @@ def edit_treatment(treatment_id):
         return redirect(url_for("get_treatments"))
         flash("Treatment Successfully Updated")
     users = mongo.db.users.find().sort("fullname", 1)
-    # users = list(User.query.order_by(User.fullname).all())
     return render_template(
         "edit_treatment.html", treatment=treatment, users=users)
 
@@ -140,7 +136,6 @@ def edit_client(user_id):
         return redirect(url_for("get_treatments"))
     if request.method == "POST":
         submit = {
-            "username": request.form.get("username"),
             "fullname": request.form.get("fullname"),
             "dob": request.form.get("dob"),
             "email": request.form.get("email"),
@@ -160,6 +155,10 @@ def delete_client(user_id):
         flash("You must be admin to manage clients!")
         return redirect(url_for("get_treatments"))
     mongo.db.users.delete_one({"_id": ObjectId(user_id)})
+    treatments = mongo.db.treatments.find()
+    # deleting = mongo.db.treatments.find({treatments.tusername: {user_id}})
+    # mongo.db.treatments.delete_many(deleting)
+    # mongo.db.treatments.delete_many({"_id": ObjectId(treatment_id)}) this did not work to delete the treatments 
     flash("Client Successfully Deleted")
     return redirect(url_for("get_clients"))
 
@@ -208,10 +207,10 @@ def login():
             # ensure hashed password matches user input
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
-                        flash("Welcome {} logged in.".format(
-                            request.form.get("username")))
-                        return redirect(url_for('get_treatments'))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome {} logged in.".format(
+                    request.form.get("username")))
+                return redirect(url_for('get_treatments'))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
