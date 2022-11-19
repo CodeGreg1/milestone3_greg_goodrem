@@ -212,24 +212,21 @@ div.col.s2 {
     width: 100%;
 }
 
-.icon-link {
+.icon-size {
     color: #000;
-    padding-top: 2px;
-    margin-right: 0;
-    margin: 0;
+    padding-top: 20px;
+    margin: 0 4vw;
     font-size: 35px;
 }
 
-footer {
-    height: 120px;
-    line-height: 1px;
-}
-
 .footer-text-right {
+    display: flex;
     color: #fff;
     text-align: center;
     font-weight: 500;
     padding-bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .footer-left {
@@ -242,4 +239,26 @@ footer {
     height: 40px;
     text-align: center;
     padding-top: 10px;
+}
+
+footer {
+    width: 100%;
+    background-color: darkblue;
+    height: 100px;
+    bottom: 0;
+    line-height: 1px;
+}
+
+.format {
+    display: inline-flex;
+    left: 50%;
+    transform: translateX(0%);
+}
+
+.follow {
+    width: 100%;
+    align-items: center;
+    position: relative;
+    top: 0;
+    right: 0;
 }
