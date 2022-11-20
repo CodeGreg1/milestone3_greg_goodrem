@@ -8,12 +8,19 @@
         <form class="col s12" method="POST" action="{{ url_for('edit_client', user_id=user._id) }}">
           <div class="row hide">
             <div class="input-field col s12">
-                    <i class="fas fa-user-edit prefix brown-text text-darken-4"></i>
-                    <select id="user_id" name="user_id" class="validate" required>
-                        <option value="{{ user._id }}" disabled selected>Choose Client</option>
-                    </select>
-                    <label for="user_id">Client</label>
-                    </div>
+                    <i class="fas fa-user prefix brown-text text-darken-4"></i>
+                    <input id="username" name="username"
+                        value="{{ user.username }}" class="validate" required>
+                    <label for="username"></label>
+            </div>
+          </div>
+          <div class="row hide">
+            <div class="input-field col s12">
+                    <i class="fas fa-user prefix brown-text text-darken-4"></i>
+                    <input id="password" name="password"
+                        value="{{ user.password }}" class="validate" required>
+                    <label for="password"></label>
+            </div>
           </div>
             <!-- client username -->
             <div class="row">
@@ -79,7 +86,7 @@
 
 {% if treatments|length > 0 %}
     {% for treatment in treatments %}
-    {% if user.username|lower == treatment.tusername|lower %}
+    {% if user.username|lower == treatment.user_id|lower %}
     <p class="hide"> {{ list.append(treatment.treatment_name)}} </p>
     {% endif%}
 {% endfor %}

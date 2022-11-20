@@ -12,7 +12,7 @@
                 <select id="user_id" name="user_id" class="validate" required>
                     <option value="" disabled selected>Choose Client</option>
                     {% for user in users %}
-                        <option value="{{ user._id }}">{{ user._id }} {{ user.fullname }} - ({{ user.username }})</option>
+                        <option value="{{ user.username }}">{{ user._id }} {{ user.fullname }} - ({{ user.username }})</option>
                     {% endfor %}
                 </select>
                 <label for="user_id">Client</label>

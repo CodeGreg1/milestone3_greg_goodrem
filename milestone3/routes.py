@@ -17,8 +17,9 @@ def home():
 @app.route("/get_treatments")
 def get_treatments():
     treatments = list(mongo.db.treatments.find())
+    users = list(mongo.db.users.find())
     return render_template(
-        "treatments.html", treatments=treatments)
+        "treatments.html", treatments=treatments, users=users)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -137,10 +138,12 @@ def edit_client(user_id):
         return redirect(url_for("get_treatments"))
     if request.method == "POST":
         submit = {
+            "username": request.form.get("username"),
             "fullname": request.form.get("fullname"),
             "dob": request.form.get("dob"),
             "email": request.form.get("email"),
-            "phone": request.form.get("phone")}
+            "phone": request.form.get("phone"),
+            "password": request.form.get("password")}
         mongo.db.users.replace_one(
             {"_id": ObjectId(user_id)}, submit)
         flash("Successfully Updated")
@@ -156,8 +159,9 @@ def delete_client(user_id):
         flash("You must be admin to manage clients!")
         return redirect(url_for("get_treatments"))
     prev_treatments = mongo.db.treatments.find({"user_id": user_id})
-    mongo.db.treatments.delete_many(prev_treatments)
-    mongo.db.users.delete_one({"_id": ObjectId(user_id)})
+    for key in prev_treatments:
+        mongo.db.treatments.delete_one(key)
+    mongo.db.users.delete_one({"username": user_id})
     flash("Client Successfully Deleted")
     return redirect(url_for("get_clients"))
 
