@@ -3,8 +3,7 @@ from flask import (
     redirect, request, session, url_for)
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from milestone3 import app, db, mongo
-from milestone3.models import Treatment, User
+from milestone3 import app, mongo
 
 
 @app.route("/")
