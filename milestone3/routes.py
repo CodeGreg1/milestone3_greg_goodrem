@@ -37,8 +37,9 @@ def add_treatment():
     if request.method == "POST":
         follow_up = "on" if request.form.get("follow_up") else "off"
         treatment = {
-            "treatment_client": request.form.get("treatment_client"),
-            "tusername": request.form.get("tusername"),
+            # "treatment_client": request.form.get("treatment_client"),
+            # "tusername": request.form.get("tusername"),
+            "user_id": request.form.get("user_id"),
             "treatment_name": request.form.get("treatment_name"),
             "treatment_subjective": request.form.get("treatment_subjective"),
             "treatment_observation": request.form.get("treatment_observation"),
@@ -65,7 +66,7 @@ def edit_treatment(treatment_id):
     if request.method == "POST":
         follow_up = "on" if request.form.get("follow_up") else "off"
         submit = {
-            "treatment_client": request.form.get("treatment_client"),
+            "user_id": request.form.get("user_id"),
             "treatment_name": request.form.get("treatment_name"),
             "treatment_subjective": request.form.get("treatment_subjective"),
             "treatment_observation": request.form.get("treatment_observation"),
@@ -154,11 +155,9 @@ def delete_client(user_id):
     if session["user"] != "gadmin":
         flash("You must be admin to manage clients!")
         return redirect(url_for("get_treatments"))
+    prev_treatments = mongo.db.treatments.find({"user_id": user_id})
+    mongo.db.treatments.delete_many(prev_treatments)
     mongo.db.users.delete_one({"_id": ObjectId(user_id)})
-    treatments = mongo.db.treatments.find()
-    # deleting = mongo.db.treatments.find({treatments.tusername: {user_id}})
-    # mongo.db.treatments.delete_many(deleting)
-    # mongo.db.treatments.delete_many({"_id": ObjectId(treatment_id)}) this did not work to delete the treatments 
     flash("Client Successfully Deleted")
     return redirect(url_for("get_clients"))
 

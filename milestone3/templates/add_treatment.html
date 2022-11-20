@@ -9,16 +9,16 @@
 			<div class="row">
 				<div class="input-field col s12">
                 <i class="fas fa-user-edit prefix brown-text text-darken-4"></i>
-                <select id="fullname" name="fullname" class="validate" required>
+                <select id="user_id" name="user_id" class="validate" required>
                     <option value="" disabled selected>Choose Client</option>
                     {% for user in users %}
-                        <option value="{{ user.id }}">{{ user.fullname }} - ({{ user.username }})</option>
+                        <option value="{{ user._id }}">{{ user._id }} {{ user.fullname }} - ({{ user.username }})</option>
                     {% endfor %}
                 </select>
-                <label for="client_id">Client</label>
+                <label for="user_id">Client</label>
                 </div>
 			</div>
-             <!-- treatment client -->
+             <!-- treatment client
              <div class="row hide">
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix brown-text text-darken-4"></i>
@@ -27,15 +27,15 @@
                     <label for="treatment_client">Treatment Client Name</label>
                 </div>
             </div>
-            <!-- treatment client -->
-            <div class="row hide">
+            treatment client -->
+            <!-- <div class="row hide">
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix brown-text text-darken-4"></i>
                     <input id="tusername" name="tusername" minlength="5" maxlength="50"
                         type="text" class="validate">
                     <label for="tusername">Treatment Client Username</label>
                 </div>
-            </div>
+            </div> -->
             <!-- treatment type -->
             <div class="row">
                 <div class="input-field col s12">
@@ -135,7 +135,5 @@
             </div>
         </form>
     </div>
-    <script src="{{ url_for('static', filename='js/script_fullname.js') }}"></script>
-
+    
 {% endblock %}
-
