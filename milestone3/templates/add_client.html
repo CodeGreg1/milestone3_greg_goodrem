@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="brown-text text-darken-4 center-align">Add New Client Details</h3>
+    <h3 class="blue-grey-text text-darken-4 center-align">Add New Client Details</h3>
 
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
@@ -9,7 +9,7 @@
                 <!-- Username -->
                 <div class="row">
 					<div class="input-field col s12">
-						<i class="fas fa-user-plus prefix brown-text text-darken-4"></i>
+						<i class="fas fa-user-plus prefix blue-grey-text text-darken-4"></i>
 						<input id="username" name="username" type="text" minlength="5"
                             maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
 						<label for="username">Username</label>
@@ -19,7 +19,7 @@
                 <!-- Full Name -->
                 <div class="row">
 					<div class="input-field col s12">
-						<i class="fas fa-user prefix brown-text text-darken-4"></i>
+						<i class="fas fa-user prefix blue-grey-text text-darken-4"></i>
 						<input id="fullname" name="fullname" type="text" minlength="5"
                             maxlength="35" class="validate" onchange="removeSpaces()" required>
 						<label for="fullname">Full name</label>
@@ -28,7 +28,7 @@
                 <!-- client Date of Birth -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-calendar-alt prefix brown-text text-darken-4"></i>
+                        <i class="fas fa-calendar-alt prefix blue-grey-text text-darken-4"></i>
                         <input id="dob" name="dob" minlength="3" maxlength="25"
                             type="date" class="validate" required>
                         <label for="dob">Date of Birth</label>
@@ -37,7 +37,7 @@
                 <!-- client email -->
               <div class="row">
                   <div class="input-field col s12">
-                      <i class="fas fa-envelope prefix brown-text text-darken-4"></i>
+                      <i class="fas fa-envelope prefix blue-grey-text text-darken-4"></i>
                         <input id="email" name="email" minlength="3" maxlength="50"
                             type="email" class="validate" required>
                         <label for="email">Email</label>
@@ -46,7 +46,7 @@
                <!-- client phone number -->
                 <div class="row">
                    <div class="input-field col s12">
-                       <i class="fas fa-phone prefix brown-text text-darken-4"></i>
+                       <i class="fas fa-phone prefix blue-grey-text text-darken-4"></i>
                        <input id="phone" name="phone" minlength="5" maxlength="15"
                        pattern="^[0-9]{5,15}$" type="text" class="validate" required>
                        <label for="phone">Phone Number</label>
@@ -55,7 +55,7 @@
                 <!-- passowrd -->
                 <div class="row">
                     <div class="input-field col s12">
-						<i class="fas fa-user-lock prefix brown-text text-darken-4"></i>
+						<i class="fas fa-user-lock prefix blue-grey-text text-darken-4"></i>
                         <input id="password" name="password" type="password" minlength="5"
                             maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                         <label for="password">Password</label>
@@ -63,7 +63,7 @@
                 </div>
                 <!-- register -->
                 <div class="row">
-                    <button type="submit" class="col s12 btn-large brown darken-4 text-shadow">
+                    <button type="submit" class="col s12 btn-large blue-grey darken-4 text-shadow">
                         Add Client <i class="fas fa-sign-in-alt"></i>
                     </button>
                 </div>

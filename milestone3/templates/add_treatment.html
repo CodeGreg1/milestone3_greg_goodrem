@@ -1,18 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="brown-text text-darken-4 center-align">Add Treatment</h3>
+    <h3 class="blue-grey-text text-darken-4 center-align">Add Treatment</h3>
 
     <div class="row card-panel grey lighten-5">
         <form id="add_treatment_form" class="col s12" method="POST" action="{{ url_for('add_treatment') }}">
             <!-- client selection -->
 			<div class="row">
 				<div class="input-field col s12">
-                <i class="fas fa-user-edit prefix brown-text text-darken-4"></i>
+                <i class="fas fa-user-edit prefix blue-grey-text text-darken-4"></i>
                 <select id="user_id" name="user_id" class="validate" required>
                     <option value="" disabled selected>Choose Client</option>
                     {% for user in users %}
-                        <option value="{{ user.username }}">{{ user._id }} {{ user.fullname }} - ({{ user.username }})</option>
+                    {% if user.username == "gadmin" %}
+                       
+                    {% else %}
+                        <option value="{{ user.username }}"> {{ user.fullname }} - ({{ user.username }})</option>
+                    {% endif %}
                     {% endfor %}
                 </select>
                 <label for="user_id">Client</label>
@@ -21,7 +25,7 @@
              <!-- treatment client
              <div class="row hide">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-pencil-alt prefix blue-grey-text text-darken-4"></i>
                     <input id="treatment_client" name="treatment_client" minlength="5" maxlength="50"
                         type="text" class="validate">
                     <label for="treatment_client">Treatment Client Name</label>
@@ -30,7 +34,7 @@
             treatment client -->
             <!-- <div class="row hide">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-pencil-alt prefix blue-grey-text text-darken-4"></i>
                     <input id="tusername" name="tusername" minlength="5" maxlength="50"
                         type="text" class="validate">
                     <label for="tusername">Treatment Client Username</label>
@@ -39,7 +43,7 @@
             <!-- treatment type -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-pencil-alt prefix blue-grey-text text-darken-4"></i>
                     <select name="treatment_name" id="treatment_name" type="text" class="validate" required>
                         <option value="shoulder">Shoulder</option>
                         <option value="back" selected>Back</option>
@@ -58,7 +62,7 @@
             <!-- treatment subjective history -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-history prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-history prefix blue-grey-text text-darken-4"></i>
                     <textarea id="treatment_subjective" name="treatment_subjective" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="treatment_subjective">Subjective History</label>
@@ -68,7 +72,7 @@
             <!-- treatment observation -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-eye prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-eye prefix blue-grey-text text-darken-4"></i>
                     <textarea id="treatment_observation" name="treatment_observation" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="treatment_observation">Observations</label>
@@ -78,7 +82,7 @@
             <!-- Treatment Range of Movement -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-drafting-compass prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-drafting-compass prefix blue-grey-text text-darken-4"></i>
                     <textarea id="treatment_rom" name="treatment_rom" minlength="5"
                     maxlength="200" class="materialize-textarea validate"></textarea>
                     <label for="treatment_rom">Range of Movement</label>
@@ -88,7 +92,7 @@
             <!-- treatment treatment_special_tests -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-vial prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-vial prefix blue-grey-text text-darken-4"></i>
                     <textarea id="treatment_special_tests" name="treatment_special_tests" minlength="5"
                     maxlength="200" class="materialize-textarea validate"></textarea>
                     <label for="treatment_special_tests">Special/Functional Tests</label>
@@ -98,7 +102,7 @@
             <!-- treatment Palpation -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-hands prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-hands prefix blue-grey-text text-darken-4"></i>
                     <textarea id="treatment_palpation" name="treatment_palpation" minlength="5"
                         maxlength="200" class="materialize-textarea validate" ></textarea>
                     <label for="treatment_palpation">Palpation</label>
@@ -107,7 +111,7 @@
             <!-- Date of treatment picker -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-calendar-alt prefix brown-text text-darken-4"></i>
+                    <i class="fas fa-calendar-alt prefix blue-grey-text text-darken-4"></i>
                     <input id="treatment_date" name="treatment_date" type="text" class="datepicker validate" required>
                     <label for="treatment_date">Treatment Date</label>
                 </div>
@@ -116,7 +120,7 @@
 			<div class="row">
 				<div class="input-field col s12">
 					<div class="switch">
-                        <i class="fas fa-exclamation-circle prefix brown-text text-darken-4"></i>
+                        <i class="fas fa-exclamation-circle prefix blue-grey-text text-darken-4"></i>
 						<label for="follow_up">
                             <input type="checkbox" id="follow_up" name="follow_up">
                             <span class="lever"></span>
@@ -128,7 +132,7 @@
             <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
-                    <button id="addButton" type="submit" class="btn-large brown darken-1 text-shadow">
+                    <button id="addButton" type="submit" class="btn-large blue-grey darken-1 text-shadow">
                         Add Treatment <i class="fas fa-plus-square right"></i>
                     </button>
                 </div>
