@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  
+  <script type="text/javascript">
+    emailjs.init('NL_21Kssn6y6yz2Lw')
+  </script>
     {% block styles %}
     {% endblock %}
     <title>Treatment Manager</title>
@@ -77,6 +83,7 @@
         {% endfor %}
         {% endif %}
         {% endwith %}
+
     </section>
 
     <main class="container">

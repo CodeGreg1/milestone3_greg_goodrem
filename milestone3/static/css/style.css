@@ -329,3 +329,15 @@ table.opening {
 .btn-large {
     border-radius: 10px;
 }
+
+textarea#message {
+    height: 80px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.card-panel.light-grey {
+    width: 500px;
+    margin-left: 30%;
+    margin-right: 30%;
+}
