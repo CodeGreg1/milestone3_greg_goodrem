@@ -294,11 +294,38 @@ body {
 .phone-text {
     color: #fff;
 }
-#stepTitle > div:nth-child(4) {
-    padding-left: 35%;
-    display: inline-flex;
+
+@media screen and (min-width: 600px) and (max-width: 993px) {
+    #stepTitle > div:nth-child(4) {
+        padding-left: 35%;
+        display: inline-flex;
+    }
 }
-body > main > div:nth-child(5) > div:nth-child(3){
-    padding-left: 35%;
-    display: inline-flex;
+
+td.day, td.times {
+    font-weight: 500;
+    width: 150px;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 1px solid white;
+    padding: 5px 15px;
+}
+
+td.day {
+    color: darkblue;
+}
+
+table.opening {
+    width: 300px;
+    margin-left: 48%;
+    transform: translateX(-50%);
+}
+
+.opening-time {
+    width: 100%;
+    text-align: center;
+}
+
+.btn-large {
+    border-radius: 10px;
 }
