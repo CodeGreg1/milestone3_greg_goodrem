@@ -92,10 +92,6 @@ label.searchlabel.active {
     font-size: 22px;
 }
 
-.padleft {
-    padding-left: 5px;
-}
-
 label.editname {
     color: black;
     font-weight: 700;
@@ -230,6 +226,7 @@ div.col.s2 {
     color: #fff;
     padding-top: 15px;
     font-size: 0.8rem;
+    width: 50%;
 }
 .social-bottom {
     height: 40px;
@@ -268,7 +265,7 @@ a.left {
 }
 
 a.right.padleft {
-    color: skyblue;
+    color: black;
 }
 
 p.telephone {
@@ -364,3 +361,13 @@ textarea#message {
     overflow:hidden;background:none!important;height:275px;width:100%;}
 
 .mapouter{position:relative;text-align:right;height:275px;width:100%;}
+
+
+a.btn.right {
+    color: white;
+    padding: 5px;
+    line-height: 16px;
+    height: auto;
+    max-width: 200px;
+    border-radius: 5px;
+}

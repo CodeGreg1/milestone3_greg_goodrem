@@ -35,24 +35,13 @@
                     {% endif %}
                 </div>
                 <div class="col s9"> 
-                    <!-- removed in jinja treatment.treatment_client  -->
+                   
                     <strong class="larger"> 
                         {% for user in users %}
                             {% if treatment.user_id|lower == user.username|lower %}        
                                 {{ user.fullname }} 
                             {% endif %}
-                        {% endfor %} - {{ treatment.treatment_name|capitalize }} </strong> : {{ treatment.treatment_date }} :
-                                    {% if treatment.treatment_name|lower == "back" %}
-                        <a class="right padleft" href="../static/advice/Exercise Advice Sheet - Back.pdf" download>Recovery Advice - <i class="fas fa-download"></i></a>
-                                    {% elif treatment.treatment_name|lower == "shoulder" %}
-                        <a class="right padleft" href="../static/advice/Exercise Advice Sheet - Shoulder.pdf" download>Recovery Advice - <i class="fas fa-download"></i></a>
-                                    {% elif treatment.treatment_name|lower == "knee" %}
-                        <a class="right padleft" href="../static/advice/Exercise Advice Sheet - Knee.pdf" download>Recovery Advice - <i class="fas fa-download"></i></a>
-                                    {% else %}
-                        <a class="right padleft" href="../static/advice/Exercise Advice Sheet.pdf" download>Recovery Advice - <i class="fas fa-download"></i></a>
-                                    {% endif %}
-                        
-
+                        {% endfor %} - {{ treatment.treatment_name|capitalize }} </strong> : {{ treatment.treatment_date }} 
                     {% if treatment.follow_up == "on" %}
                     <i class="fas fa-exclamation-circle blue-grey-text text-lighten-2 tooltipped"
                         data-position="right" data-tooltip="URGENT!"></i>
@@ -62,7 +51,7 @@
             </div>
             <div class="collapsible-body">
                 <div class="row">
-                    <div class="col s6 m6">
+                    <div class="col s12 m6">
                         <strong>Subjective History: </strong>
                         <p>{{ treatment.treatment_subjective }}</p>
                         <strong>Observations: </strong>
@@ -70,12 +59,21 @@
                         <strong>Special/Functional Tests: </strong> 
                         <p>{{ treatment.treatment_special_tests }}</p>
                     </div>
-                    <div class="col s6 m6">
+                    <div class="col s12 m6">
                         <strong>Range of Movement: </strong>
                         <p>{{ treatment.treatment_rom }}</p>
                         <strong>Palpation: </strong>
                         <p>{{ treatment.treatment_palpation }}</p>
                         <p><em>by: {{ treatment.created_by }}</em></p>
+                        {% if treatment.treatment_name|lower == "back" %}
+                        <a class="btn dlas right deep-orange" href="../static/advice/Exercise Advice Sheet - Back.pdf" download>Download {{ treatment.treatment_name|capitalize }} Recovery Advice <i class="fas fa-download"></i></a>
+                                    {% elif treatment.treatment_name|lower == "shoulder" %}
+                        <a class="btn right deep-orange" href="../static/advice/Exercise Advice Sheet - Shoulder.pdf" download>Download {{ treatment.treatment_name|capitalize }} Recovery Advice <i class="fas fa-download"></i></a>
+                                    {% elif treatment.treatment_name|lower == "knee" %}
+                        <a class="btn right deep-orange" href="../static/advice/Exercise Advice Sheet - Knee.pdf" download>Download {{ treatment.treatment_name|capitalize }} Recovery Advice <i class="fas fa-download"></i></a>
+                                    {% else %}
+                        <a class="btn right deep-orange darken-4" href="../static/advice/Exercise Advice Sheet.pdf" download>Download {{ treatment.treatment_name|capitalize }} Recovery Advice <i class="fas fa-download"></i></a>
+                                    {% endif %}
                     </div>
                 </div>
             </div>

@@ -86,7 +86,7 @@
 
 {% if treatments|length > 0 %}
     {% for treatment in treatments %}
-    {% if user.username|lower == treatment.user_id|lower or session['user'] == "gadmin" %}
+    {% if user.username|lower == treatment.user_id|lower %}
     <p class="hide"> {{ list.append(treatment.treatment_name)}} </p>
     {% endif%}
 {% endfor %}
@@ -228,7 +228,7 @@
     {% if treatments|length > 0 %}
     <ul class="collapsible">
         {% for treatment in treatments %}
-        {% if user._id|string == treatment.user_id|string %}
+        {% if user.username|string == treatment.user_id|string %}
         <!-- {{ treatment.user_id }}  -->
         <!-- <h5>{{ user._id }} - user._id works {{ user.fullname }} - user.fullname works </h5> -->
         <li>
