@@ -86,7 +86,7 @@
 
 {% if treatments|length > 0 %}
     {% for treatment in treatments %}
-    {% if user.username|lower == treatment.user_id|lower %}
+    {% if user.username|lower == treatment.user_id|lower or session['user'] == "gadmin" %}
     <p class="hide"> {{ list.append(treatment.treatment_name)}} </p>
     {% endif%}
 {% endfor %}
