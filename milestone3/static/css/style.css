@@ -302,6 +302,7 @@ body {
     }
 }
 
+
 td.day, td.times {
     font-weight: 500;
     width: 150px;
@@ -332,12 +333,34 @@ table.opening {
 
 textarea#message {
     height: 80px;
-    border: 1px solid gray;
-    border-radius: 5px;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom-color: grey;
+    margin-bottom: 10px;
 }
 
 .card-panel.light-grey {
-    width: 500px;
-    margin-left: 30%;
-    margin-right: 30%;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
 }
+
+
+@media screen and (min-width: 900px){
+    .card-panel.light-grey {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+} 
+
+#buttonsm {
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.gmap_canvas {
+    overflow:hidden;background:none!important;height:275px;width:100%;}
+
+.mapouter{position:relative;text-align:right;height:275px;width:100%;}

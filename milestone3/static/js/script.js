@@ -15,8 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
     let collapsibles = document.querySelectorAll(".collapsible");
     M.Collapsible.init(collapsibles);
 });
+const btn = document.getElementById('buttonsm');
 
-const btn = document.getElementById('button');
+function sendReset() {
+  btn.value = 'Send Email';
+}
+
 
 document.getElementById('form').addEventListener('submit', function(event) {
    event.preventDefault();
@@ -28,8 +32,8 @@ document.getElementById('form').addEventListener('submit', function(event) {
 
    emailjs.sendForm(serviceID, templateID, this)
     .then(() => {
-      btn.value = 'Send Email';
-      alert('Sent!');
+      btn.value = 'Sent!'
+      setTimeout(sendReset, 5000)
     }, (err) => {
       btn.value = 'Send Email';
       alert(JSON.stringify(err));
