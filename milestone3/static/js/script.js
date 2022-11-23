@@ -15,12 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
     let collapsibles = document.querySelectorAll(".collapsible");
     M.Collapsible.init(collapsibles);
 });
+
 const btn = document.getElementById('buttonsm');
 
 function sendReset() {
   btn.value = 'Send Email';
 }
-
 
 document.getElementById('form').addEventListener('submit', function(event) {
    event.preventDefault();

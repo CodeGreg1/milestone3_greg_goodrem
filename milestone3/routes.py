@@ -26,7 +26,9 @@ def search():
     query = request.form.get("query")
     treatments = list(
         mongo.db.treatments.find({"$text": {"$search": query}}))
-    return render_template("treatments.html", treatments=treatments)
+    users = list(mongo.db.users.find()) 
+    return render_template(
+        "treatments.html", treatments=treatments, old_query=query, users=users)
 
 
 @app.route("/add_treatment", methods=["GET", "POST"])
