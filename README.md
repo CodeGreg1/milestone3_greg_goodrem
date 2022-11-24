@@ -1,21 +1,19 @@
 <h1 align="center">Greg Goodrem Milestone Project 3</h1>
-<h2 align='center'>Treatment App</h2>
+<h2 align='center'>Treatment Management Web Application</h2>
 <br>
 
-This project is designed to be a client retent
-
-as a shooting gallery game for fun. This game is constructed with my correct knowledge level of HTML, CSS and Javascript. The goal of the game is to shoot the targets as quickly as you can during the 20 second time limit.
+This project is designed to be a client management web application that is focused on the Therapist being the main administrator of the app. This app is constructed with my current knowledge level of HTML, CSS, Python, Javascript, Jinja and Flask. The overall goal of the application is to serve as a tool for a Sports Therapist, Physiotherapist or anyone that needs to take SOAP notes and share the information with their clients and also help them follow up on their treatment with specific guidance based on the area effected.  
 
 The live website can be found here.
 
-[View the live project here.](https://codegreg1.github.io/milestone_project2/)
+[View the live project here.](https://milestone3-greg-goodrem.herokuapp.com/)
 
-<h2 align="center"><img src="assets/media/mock-up.png"></h2>
+<h2 align="center"><img src="milestone3/static/images/Mock-up-ms3.png"></h2>
 
 ## Contents
 
 -   ### [User Experience](#ux)
--   ### [Game Research](#research)
+-   ### [Research](#research)
 -   ### [Design Process](#design)
 -   ### [Wireframe Outlines](#wireframes)
 -   ### [Responsive Design Features](#responsive)
@@ -28,42 +26,45 @@ The live website can be found here.
 -   ### [Journey through Project](#journey)
 -   ### [Personal Conclusion](#conclusion)
 
-<br>
+***
 <a name='ux'/>
 
 ## User Experience (UX and UI) 
+-   ### Initial Therapist Experience
+    - As the therapist it is important that they direct their clients towards the application so that they initially create a login and then go on to book an in person appointment.
 
--   ### First Time Visitor Goals
-    - As a first time user I need them to understand how to get the game started and the general rules of the game. 
+-   ### Initial Client Goals
+    - As a first time user they sign up in order to book their treatment session with a qualified therapist. 
         
-    - As a first time user I need them to understand how to shoot a target to take them down.
+    - As a first time user after they have booked their session they need to atttend and see their therapist.
 
-    - As a first time user I need them to easily play the game through responsive design of the shooting gallery.
+-   ### After/During Treatment session for the Therapist 
 
-    - As a first time user I need them to realise how the scoring works so they can beat their previous score next time they play. 
-
--   ### Returning Visitor Goals
-
-    - As a Returning Visitor, I want them to be competitive with themselves and try and get the best score possible. 
+    - As the Therapist they will use all the available inputs in order to make the correct treatment decisions and record them. These also in the future could be used for legal situations if a claim was made against the therapist. However most importantly it is to share the data with the client directly. The information shared will also trigger an advice sheet for download by the client to follow between sessions after the session is complete.  
     
+- ### After Treatment session for the clients
+
+    - As the client you have full access to what the therapist has observed and what was being assessed in the session. The added benefit is that you are able to come away with these notes as well as a recovery guide for that particular area of the body.
+
     <br>
     <a name='research'/>
 
-##  Game Research  
+##  Research  
     
-I wanted to explore a retro shooting style game which would be very unique. I loved playing games like this myself games such as Time-crisis back in the 1990's. I gathered more inspiration for this game from shoot'em ups and classic retro games like duck hunt, space invaders and asteroids.
-    I played several of these types of games both online and through a retro gaming console to help develop an idea.
-    
+I wanted to explore a solution to very heavily paperwork based industry when it comes to physiotherapy and sports therapy. I personally have experience as client and also very much understand the role of the therapist as I have done a Sports Massage course.
+Reaching out to active therapists I found that a lot of therapists still use paper based systems to collect this information and also when relaying the aftercare information. Not all therapists give advice sheets with detailed examples of the exercises a person should do to help continue injury recovery after a treatment. 
+I found their are few treatment apps that include the client as the focus for outputting information to. A lot of the applications available such as vagaro..... focus on the therapist souly being the user. 
+-   [Vagaro](https://sales.vagaro.co.uk/pricing) - The basic cost of this system is £30 per month and up to over £200+ per month and the focus of the app is for the business side for the Therapist covering bookings, reports, customer tracking etc.
+- [Pabau](https://www.pabau.com/) - Very much a client management system focused on running a clinic such as booking systems, payments, marketing and staff management. Pricing starts at £65 per month.
+- [Noterro](https://noterro.com/practice-management-software-features) - Another practice management software that covers a lot of other aspects of the therapy environment but not so much on the continued recovery after a session has been made. Starts at £25 per month.
+- [Rehabguru](https://www.rehabguru.com/) - This is the closest to the application I've designed which focuses on the exercise library so a therapist can create recovery sheets to share with their clients and also take treatment notes etc. Starts at £10 per month.
+
+
 -   ### Research Analysis
-    I thought although it would be great to write games such as space invaders or asteroids in a more code along type of learning for this project, I wanted to put my own spin on a shooting game.
-    
-    I hadn't seen a game like the one I designed on any of the retro sites or comsoles. 
-    I thought to keep it child friendly I would use a carnival shooting style instead of a more military style shooting experience with enemy targets.
-    Although this idea could develop into more development of the game.
+    It appears there are fewer apps that focus mainly on providing clients with the tools to carry on their rehab journey. A lot of the applications out there have focused on the business side with the additional treatment advice outside of their remit. The Rehabguru app was good because it offered 2 different apps one for the Therapist using it and one for the client who receives the information and can make bookings etc.
     
     <br>
     <a name='#design'></a>
-
 ## Design 
 
 -   The design is suppose to mimic a carnival stall where you would shoot at the targets and win a prize!
