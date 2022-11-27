@@ -31,57 +31,55 @@ The live website can be found here.
 
 ## User Experience (UX and UI) 
 -   ### Initial Therapist Experience
-    - As the therapist it is important that they direct their clients towards the application so that they initially create a login and then go on to book an in person appointment.
+    - As the therapist it is important that they direct their clients towards the application so that they initially create a login and then go on to book an in person appointment. This starts the future interactions with the app. 
 
 -   ### Initial Client Goals
-    - As a first time user they sign up in order to book their treatment session with a qualified therapist. 
+    - As a first time user they will sign up and create a login in order to book their treatment session with a qualified therapist. 
         
     - As a first time user after they have booked their session they need to atttend and see their therapist.
 
 -   ### After/During Treatment session for the Therapist 
 
-    - As the Therapist they will use all the available inputs in order to make the correct treatment decisions and record them. These also in the future could be used for legal situations if a claim was made against the therapist. However most importantly it is to share the data with the client directly. The information shared will also trigger an advice sheet for download by the client to follow between sessions after the session is complete.  
+    - As the Therapist they will use all the available inputs in order to make the correct treatment decisions and record them. The information can be used in the future for legal situations if a claim was made against the therapist. However most importantly it is to share the data with the client directly. The information shared will also trigger an advice sheet for download by the client to follow between sessions after the session is complete.  
     
 - ### After Treatment session for the clients
 
-    - As the client you have full access to what the therapist has observed and what was being assessed in the session. The added benefit is that you are able to come away with these notes as well as a recovery guide for that particular area of the body.
+    - As the client they have full access to what the therapist has observed and record and what was being assessed in the session. The added benefit is that you are able to come away with their notes as well as a recovery guide for that particular area of the body.
+
+    - The information from this can be invaluable if the client needs to see another therapist, they can share previous treatment information.
 
     <br>
     <a name='research'/>
 
 ##  Research  
     
-I wanted to explore a solution to very heavily paperwork based industry when it comes to physiotherapy and sports therapy. I personally have experience as client and also very much understand the role of the therapist as I have done a Sports Massage course.
+I wanted to explore a solution to the very heavily paperwork based industry when it comes to physiotherapy and sports therapy. I personally have experienced as client and also very much understand the role of the therapist as I have done a Sports Massage course.
 Reaching out to active therapists I found that a lot of therapists still use paper based systems to collect this information and also when relaying the aftercare information. Not all therapists give advice sheets with detailed examples of the exercises a person should do to help continue injury recovery after a treatment. 
-I found their are few treatment apps that include the client as the focus for outputting information to. A lot of the applications available such as vagaro..... focus on the therapist souly being the user. 
+I found their are few treatment apps that include the client as the focus for outputting information to. A lot of the applications available such as Vagaro, Pabau, Noterro among others focus on the therapist souly being the user. 
 -   [Vagaro](https://sales.vagaro.co.uk/pricing) - The basic cost of this system is £30 per month and up to over £200+ per month and the focus of the app is for the business side for the Therapist covering bookings, reports, customer tracking etc.
-- [Pabau](https://www.pabau.com/) - Very much a client management system focused on running a clinic such as booking systems, payments, marketing and staff management. Pricing starts at £65 per month.
+- [Pabau](https://www.pabau.com/) - Very much a similar client management system focused on running a clinic such as booking systems, payments, marketing and staff management. Pricing starts at £65 per month.
 - [Noterro](https://noterro.com/practice-management-software-features) - Another practice management software that covers a lot of other aspects of the therapy environment but not so much on the continued recovery after a session has been made. Starts at £25 per month.
 - [Rehabguru](https://www.rehabguru.com/) - This is the closest to the application I've designed which focuses on the exercise library so a therapist can create recovery sheets to share with their clients and also take treatment notes etc. Starts at £10 per month.
 
 
 -   ### Research Analysis
-    It appears there are fewer apps that focus mainly on providing clients with the tools to carry on their rehab journey. A lot of the applications out there have focused on the business side with the additional treatment advice outside of their remit. The Rehabguru app was good because it offered 2 different apps one for the Therapist using it and one for the client who receives the information and can make bookings etc.
+    It appears there are fewer apps that focus mainly on providing clients with the tools to carry on the clients rehab journey. A lot of the applications out there have focused on the business side with the additional treatment advice outside of their remit. The Rehabguru app was good because it offered 2 different apps one for the Therapist using it and one for the client who receives the information and can make bookings etc.
     
     <br>
     <a name='#design'></a>
 ## Design 
+-   The design has a clean look website. I've used Materialize to help with the creation of HTML and CSS. I've made the website as a whole as something I could potentially us on a native app. 
 
--   The design is suppose to mimic a carnival stall where you would shoot at the targets and win a prize!
 
     ### Colour Scheme
-    -   The two main colours used are Red, Black and White as I feel these fit with the general aesthetics of the theme.
+    -   The main colour used is a Dark Blue with White and also Dark Grey tones used on some of the background cards and icons. Using very simple colour combinations allows me to alter the colour for another Therapist who may want this addition to their practice.
    
     ### Typography
-    -   I've used two fonts in this game.
-    'Sancreek' has been used to give the text a more fun carnival feel although it's quite a complicated design so mainly used as titles and sub titles.
-    'Roboto' has also been used to give the instructions a clean and clear font which should make it easy to read.
+    -   The font I've used in this applicaton is Muli. It is a minimalist Sans Serif font. Muli is described as mainly for use as a display font so I thought this works well with the cleaness of the web application that I've created.
 
     ### Imagery
-    -   Two pictures have been used I've created and edited both in canva.
-    The target design was made to show a realistic visual for a target with the rings showing a potential score. 
-    Later during my game development I thought I would keep the design however lose the scoring so it would be less complicated for the player only having to focus on the centre target and the outer white rings.
-    The carnival background header was created to give the game some sort of carnival feel.
+    -   The pictures I have used have mainly come from Balanced Training. They are mainly in the form of headshots for staff and also the fullwidth banner picture of a massage. I have also used a picture from the TV show friends with the character Ross delivering a massage with spoons. I've used this as a placeholder till another picture of myself is made whilst delivering a massage.
+    -   I've used mainly real world pictures so this could very easily be used straight away.
     
     <br>
     <a name='wireframes'/>

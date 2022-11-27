@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+
 body {
     display: flex;
+    font-family: 'Muli', sans-serif;
     min-height: 100vh;
     flex-direction: column;
 }
@@ -307,6 +311,7 @@ td.day, td.times {
     text-align: center;
     border-bottom: 1px solid white;
     padding: 5px 15px;
+    height: ;
 }
 
 td.day {
