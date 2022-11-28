@@ -23,7 +23,7 @@ main {
 }
 
 .topnav, .footernav{
-    background-image: url(../images/sportsmassagebanner.png) ;
+    background-image: url(../images/sportsmassagebanner.webp) ;
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;
@@ -124,16 +124,18 @@ body > main > div > div:nth-child(2) > div.col {
     left: 50px;
 }
 
-.bannersm {
+img.bannersm.center-align {
     width: 116%;
+    height: auto;
     position: relative;
     left: -8%;
     right: 0;
 }
 
-.steps {
+img.steps {
     margin: 0 0px;
     width: 200px;
+    height: 200px;
     border-radius: 50%;
     box-shadow: 3px 3px 3px grey;
 }
@@ -189,11 +191,14 @@ div.col.s2 {
 .therapists {
     font-size: 26px;
 }
-.profilepic {
+
+img.profilepic {
     border-radius: 50%;
     margin: auto 0;
     top: 0;
-    width: 80%;
+    width: 200px;
+    height: 200px;
+    height: auto;
     border: 1px solid rgb(0, 0, 139, 0.8);
     box-shadow: 3px 3px 3px darkblue;
 }

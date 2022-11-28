@@ -149,6 +149,8 @@ I was inspired by some of the course material in the 50 javascript projects in 5
 
 ## Testing 
 
+Python Syntax ss
+
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
 - [W3C Markup Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcodegreg1.github.io%2Fmilestone_project2%2F) - Results - No Errors or Warnings

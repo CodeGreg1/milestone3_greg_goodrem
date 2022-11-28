@@ -40,3 +40,5 @@ document.getElementById('form').addEventListener('submit', function(event) {
     });
 });
 
+// const gmap_canvas = document.getElementById('gmap_canvas')
+// gmap_canvas.addEventListener('touchstart', onTouchStart, {passive: true});
