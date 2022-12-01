@@ -68,7 +68,7 @@ I found their are few treatment apps that include the client as the focus for ou
     <br>
     <a name='#design'></a>
 ## Design 
--   The design has a clean look website. I've used Materialize to help with the creation of HTML and CSS. I've made the website as a whole as something I could potentially us on a native app. 
+-   The design has a clean look website. I've used Materialize to help with the creation of HTML and CSS. I've made the website as a whole as something I could potentially us as a native app in the future. 
 
 
     ### Colour Scheme

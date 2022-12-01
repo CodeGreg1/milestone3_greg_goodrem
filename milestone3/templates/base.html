@@ -4,20 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}" type="text/css"> -->
+    <meta name="description" content="Milestone Three Project Sports Therapy App">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Python, Flask, MongoDB, Code Institute">
+    <meta name="author" content="Greg Goodrem">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
         integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA=="
         crossorigin="anonymous" type="text/css">
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='materialize/css/materialize.min.css') }}" type="text/css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    <script type="text/javascript"
-    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  
-  <script type="text/javascript">
-    emailjs.init('NL_21Kssn6y6yz2Lw')
-  </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">emailjs.init('NL_21Kssn6y6yz2Lw')</script>
     {% block styles %}
     {% endblock %}
     <title>Treatment Manager</title>
@@ -29,23 +26,23 @@
         <!-- top navbar -->
         <nav class="nav-extended text-shadow topnav darken-1">
             <div class="nav-wrapper">
-                <a href="{{ url_for('home') }}" class="brand-logo">Sports Therapy App</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+                <a href="{{ url_for('home') }}" class="brand-logo" title="Link to Home page">Sports Therapy App</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right" title="Links to other pages"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     {% if session.user %}
                     {% if session.user|lower != "gadmin"|lower %}
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">Booking</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}" title="Link to Booking">Booking</a></li>
                     {% endif %}
                     {% if session.user|lower == "gadmin"|lower %}
-                    <li><a href="{{ url_for('get_clients') }}">Manage Clients</a></li>
-                    <li><a href="{{ url_for('add_treatment') }}">New Treatment</a></li>
-                    <li><a href="{{ url_for('report') }}">Report</a></li>
+                    <li><a href="{{ url_for('get_clients') }}" title="Link to Manage Clients">Manage Clients</a></li>
+                    <li><a href="{{ url_for('add_treatment') }}" title="Link to New Treatment">New Treatment</a></li>
+                    <li><a href="{{ url_for('report') }}" title="Link to Reports">Report</a></li>
                     {% endif %}
-                    <li><a href="{{ url_for('get_treatments') }}">Treatments</a></li>
-                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    <li><a href="{{ url_for('get_treatments') }}" title="Link to Treatments">Treatments</a></li>
+                    <li><a href="{{ url_for('logout') }}" title="Link to Log Out">Log Out</a></li>
                     {% else %}
-                    <li><a href="{{ url_for('login') }}">Log In</a></li>
-                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                    <li><a href="{{ url_for('login') }}" title="Link to Log in">Log In</a></li>
+                    <li><a href="{{ url_for('register') }}" title="Link to Register">Register</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -58,18 +55,18 @@
             </li>
             {% if session.user %}
             {% if session.user|lower != "gadmin"|lower %}
-            <li><a href="{{ url_for('profile', username=session['user']) }}">Booking</a></li>
+            <li><a href="{{ url_for('profile', username=session['user']) }}" title="Link to Booking">Booking</a></li>
             {% endif %}
             {% if session.user|lower == "gadmin"|lower %}
-            <li><a href="{{ url_for('get_clients') }}">Manage Clients</a></li>
-            <li><a href="{{ url_for('add_treatment') }}">New Treatment</a></li>
-            <li><a href="{{ url_for('report') }}">Report</a></li>
+            <li><a href="{{ url_for('get_clients') }}" title="Link to Maange Clients">Manage Clients</a></li>
+            <li><a href="{{ url_for('add_treatment') }}" title="Link to New Treatment">New Treatment</a></li>
+            <li><a href="{{ url_for('report') }}" title="Link to Report">Report</a></li>
             {% endif %}
-            <li><a href="{{ url_for('get_treatments') }}">Treatments</a></li>
-            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            <li><a href="{{ url_for('get_treatments') }}" title="Link to Treatments">Treatments</a></li>
+            <li><a href="{{ url_for('logout') }}" title="Link to Log out">Log Out</a></li>
             {% else %}
-            <li><a href="{{ url_for('login') }}">Log In</a></li>
-            <li><a href="{{ url_for('register') }}">Register</a></li>
+            <li><a href="{{ url_for('login') }}" title="Link to Log in">Log In</a></li>
+            <li><a href="{{ url_for('register') }}" title="Link to Register">Register</a></li>
             {% endif %}
         </ul>
     </header>
@@ -103,7 +100,7 @@
         <div class="footer-new">
             <div class="row">
                 <!--Footer Left-->
-                <div class="footer-left col ">
+                <div class="footer-left col s6 ">
                     <!--The link is the geographical address on google maps used by Balanced Training-->
                     <a id="" class="left"
                         href="https://maps.google.com/maps/dir//Balanced+Training+Unit+A3,+Seedbed+Business+Centre+Vanguard+Way+Southend-on-Sea+SS3+9QY/@51.534883,0.7957074,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x47d927b7c1b1e26d:0x8d658dbbe5f7866"
@@ -117,24 +114,24 @@
                     <p class="telephone" ><i class="fas fa-phone"></i><a class="phone-text" href="Tel:01702382390"> 01702 382390</a></p>
                 </div>
                 <!--Footer Right-->
-                <div class="col format">
+                <div class="col format s6">
                     <div class="footer-text-right">
 
                         <div class="social-bottom">
                             <!--The link is the current Facebook address used by Balanced Training-->
-                            <a class="icon-link" href="https://facebook.com/BalancedPTS/" target="_blank"
+                            <a href="https://facebook.com/BalancedPTS/" target="_blank"
                                 title="Link to Facebook">
                                 <i class="fab fa-facebook icon-size"></i></a></div>
                         <div class="social-bottom">
                             <!--The link is the current instagram address used by Balanced Training-->
-                            <div class="follow">Follow us on</div>
-                            <a class="icon-link" href="https://instagram.com/balanced_training" target="_blank"
+                            <div class="follow">Follow</div>
+                            <a href="https://instagram.com/balanced_training" target="_blank"
                                 title="Link to Instagram">
                                 <i class="fab fa-instagram icon-size"></i></a>
                         </div>
                         <div class="social-bottom">
                             <!--The link is the current linkedin address used by Balanced Training-->
-                            <a class="icon-link" href="https://linkedin.com/company/balanced-training/" target="_blank"
+                            <a href="https://linkedin.com/company/balanced-training/" target="_blank"
                                 title="Link to Linked In">
                                 <i class="fab fa-linkedin icon-size"></i></a></div>
                     </div>
