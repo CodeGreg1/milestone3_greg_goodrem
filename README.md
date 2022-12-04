@@ -86,9 +86,16 @@ I found their are few treatment apps that include the client as the focus for ou
 
 ## Wireframes 
 
--   Initial/Instruction Screen Wireframe - [View](https://codegreg1.github.io/milestone_project2/assets/media/projectWireframeInitialScreen.png)
--   Game Display Screen Wireframe - [View](https://codegreg1.github.io/milestone_project2/assets/media/projectWireframeGameScreen.png)
--   Score Screen Wireframe - [View](https://codegreg1.github.io/milestone_project2/assets/media/projectWireframeScoreScreen.png)
+-   Home Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/home.png)
+-   Login Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/login.jpg)
+-   Register Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/register.jpg)
+-   Add Client Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/add_client.jpg)
+-   Add Treatment Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/add_treatment.jpg)
+-   Edit Client Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/edit_client.jpg)
+-   Edit Treatment Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/edit_treatment.jpg)
+-   Treatments Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/treatments.jpg)
+-   Manage Clients Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/manage_clients.jpg)
+-   Report Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/report.jpg)
 
 <br>
 <a name='responsive'/>
