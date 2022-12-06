@@ -92,7 +92,7 @@ I found their are few treatment apps that include the client as the focus for ou
 -   Add Client Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/add_client.jpg)
 -   Add Treatment Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/add_treatment.jpg)
 -   Edit Client Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/edit_client.jpg)
--   Edit Treatment Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/edit_treatment.jpg)
+-   Edit Treatment Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/edit_treatment.png)
 -   Treatments Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/treatments.jpg)
 -   Manage Clients Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/manage_clients.jpg)
 -   Report Screen Wireframe - [View](https://milestone3-greg-goodrem.herokuapp.com/static/images/readme_images/report.jpg)
@@ -101,21 +101,24 @@ I found their are few treatment apps that include the client as the focus for ou
 <a name='responsive'/>
 
 ## Responsive Design Features 
-- Game Designed completely independently of tutorials or code along type projects.
-- Game is designed as an interactive shooting gallery.
-- Game is playable on all platforms although mobile will achieve a higher score due to more digits able to hit more targets.
-- The game keeps score of the Total score, Perfect shots, also a shoots taken tally.
-- The game has an animated count down clock and also animated target when knocked down.
-- The game also resets the target within the different levels length as soon as the previous target disappears.
+-   The App has been made to be responsive on varying sized screens.
+-   The App will resize from the screen of a mobile phone all the way to a full desktop display.
+-   Its intended use is for the therapist to generally use a computer or tablet device to input informaion and the end user (Client) to review on their phones.
+-   Even though the intended use is as stated it can still be used on a mobile by a therapist if required.
+-   The treatment advice and notes are immediately available to the client after their session.
+-   The reports page keeps track of trends with overall numbers of clients and treatments on different areas oof the body.
+-   Individually you can review treatments of clients and how many they've had on different areas of the body. This can help out for returning clients and reviewing previous sessions.
+-   The booking system has been embeded using an iframe and automatically filling the name and email data from the users own information. 
+-   The booking system automatically emails out to the client confirmation of appointment.
 
 <br>        
 <a name='future'/>
 
 ## Future Features 
--   Once a website is established I could create a highscore section which also differenciates between mobile and desktop players.    
--   Different types of level themes.
--   Moving targets either left or right to make it more challenging.
-
+-   I think adding more advice sheets with video links and instructionals would be a great feature. Currently I have used Knee, Back, Shoulder and a general one advice sheet so I would actually break this down further to more specific injuries as well. For example if someone comes in with a shoulder injury the recovery advice can vary from being very general to being very specific e.g. If someone has an anterior injury of the deltoid or a injury to the rotator cuff the advice would be very different but are both in the shoulder area.
+-   Having a time limited access to content could really help injury recovery and help promote a client to come back if at the end of that period if they haven't seen any progress. After all the client could try and do the recovery advice at another time and potentially make it worse because its a different type of injury. It could also be a completely different type of medical issue.
+-   The ability to see the time of the next appointment with the therapist in the app itself and also the ability to pay for services in the app. This would be good for client tracking.
+-   I could also include a communications system within the app so the therapist can respond and help injury recovery more thoroughly going forward.
 <br>
 <a name='tech'/>
 
@@ -123,6 +126,8 @@ I found their are few treatment apps that include the client as the focus for ou
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 -   [Javascript](https://en.wikipedia.org/wiki/javascript)
+-   [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+-   [Jinja](https://en.wikipedia.org/wiki/Jinja_(template_engine))
 
 <br>
 <a name='frameworks'/>
@@ -134,16 +139,20 @@ I found their are few treatment apps that include the client as the focus for ou
 - [Font Awesome:](https://fontawesome.com/)
     - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 - [Git](https://git-scm.com/)
-    - Git was used for version control by utilizing the VS Code terminal to commit to Git and Push to GitHub.
-- [Visual Studio Code](https://code.visualstudio.com)
-    - I used VS Code as I have found it quite easy to use and also enables me to automatically have a hard copy of each file on my laptop
+    - Git was used for version control by utilizing the terminal to commit to Git and Push to GitHub.
 - [GitHub:](https://github.com/)
     - GitHub is used to store the projects code after being pushed from Git.
 - [Balsamiq:](https://balsamiq.com/)
     - Balsamiq was used to create the wireframes during the design process.
-- [Howler](https://howlerjs.com)
-    - I used Howler to correct the issue I had with the sound effects not playing correctly.
-    
+- [EmailJS](https://www.emailjs.com/)
+    - I used EmailJS to enable free emailing to the therapist on the home page.
+- [Calendly](https://developer.calendly.com/)
+    - I used Calendly to interact directly with a booking system already set up and being used for treatment appointments.
+- [Flask](https://en.wikipedia.org/wiki/Flask_(web_framework))
+    - I used Flask as the web framework to build the website on.
+- [MongoDB](https://www.mongodb.com/)
+    - I used MongoDB as the database for storing information gathered in the app.
+
     <br>
     <a name='credit'/>
 
