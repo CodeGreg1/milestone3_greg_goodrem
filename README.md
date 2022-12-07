@@ -80,7 +80,15 @@ I found their are few treatment apps that include the client as the focus for ou
     ### Imagery
     -   The pictures I have used have mainly come from Balanced Training. They are mainly in the form of headshots for staff and also the fullwidth banner picture of a massage. I have also used a picture from the TV show friends with the character Ross delivering a massage with spoons. I've used this as a placeholder till another picture of myself is made whilst delivering a massage.
     -   I've used mainly real world pictures so this could very easily be used straight away.
-    
+
+    ### Database
+    -   I decided to use MongoDB as it will be easier to scale in the future being a non-relational database. The schema is flexible so this will help when it comes to more additions to the data collected.
+    -   One of the benefits of MongoDB is the high performance which is always a benefit.
+    -   I feel using MongoDB we can use all the positives of this Non-relational database and the negatives of consistency and reliability will not effect what we are trying to achieve.  
+    -   Below is the Schema for the database I created:
+
+<h2 align="center"><img src="milestone3/static/images/Schema.webp"></h2>
+
     <br>
     <a name='wireframes'/>
 
@@ -106,6 +114,7 @@ I found their are few treatment apps that include the client as the focus for ou
 -   Its intended use is for the therapist to generally use a computer or tablet device to input informaion and the end user (Client) to review on their phones.
 -   Even though the intended use is as stated it can still be used on a mobile by a therapist if required.
 -   The treatment advice and notes are immediately available to the client after their session.
+-   The treatments and clients can be edited and deleted. The delete function has a modal setup so people don't accidently delete treatments or clients.  
 -   The reports page keeps track of trends with overall numbers of clients and treatments on different areas oof the body.
 -   Individually you can review treatments of clients and how many they've had on different areas of the body. This can help out for returning clients and reviewing previous sessions.
 -   The booking system has been embeded using an iframe and automatically filling the name and email data from the users own information. 
@@ -183,7 +192,9 @@ Also I used Jest Testing for automated testing I ran into a couple of problems h
 
 ## Errors and Bugs 
 
--   The biggest area of resistance with the project was trying to get the sound to work in the way intended. I was able to over come this issue with the use of Howler which allowed me to deploy a better user experience with the sound playing on all devices without delays. The problem was initially due to the way Safari among other browsers doesn't allow you to play sounds on a website straight away and requires some sort of interaction with the page first.
+-   The biggest problem I had initially was when I had both postgres and mongodb working at the same time
+
+The biggest area of resistance with the project was trying to get the sound to work in the way intended. I was able to over come this issue with the use of Howler which allowed me to deploy a better user experience with the sound playing on all devices without delays. The problem was initially due to the way Safari among other browsers doesn't allow you to play sounds on a website straight away and requires some sort of interaction with the page first.
 
 -   A second audio issue was that I was going to have the option of a mute button however the global fields for Howler were not able to be imported on this platform (Gitpod) for building or at least I didn't find a way to resolve it.
 
