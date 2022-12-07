@@ -395,3 +395,10 @@ a.btn.records {
     width: 103px;
     margin: 5px;
 }
+
+.modal .modal-footer {
+    text-align: center;
+}
+div#modal1.modal.open {
+    left: -15%;
+}
