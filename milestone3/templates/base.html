@@ -13,8 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">emailjs.init('NL_21Kssn6y6yz2Lw')</script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init('NL_21Kssn6y6yz2Lw')
+    </script>
     {% block styles %}
     {% endblock %}
     <title>Treatment Manager</title>
@@ -27,11 +29,13 @@
         <nav class="nav-extended text-shadow topnav darken-1">
             <div class="nav-wrapper">
                 <a href="{{ url_for('home') }}" class="brand-logo" title="Link to Home page">Sports Therapy App</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger right" title="Links to other pages"><i class="fas fa-bars"></i></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right" title="Links to other pages"><i
+                        class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     {% if session.user %}
                     {% if session.user|lower != "gadmin"|lower %}
-                    <li><a href="{{ url_for('profile', username=session['user']) }}" title="Link to Booking">Booking</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}" title="Link to Booking">Booking</a>
+                    </li>
                     {% endif %}
                     {% if session.user|lower == "gadmin"|lower %}
                     <li><a href="{{ url_for('get_clients') }}" title="Link to Manage Clients">Manage Clients</a></li>
@@ -102,16 +106,18 @@
                 <!--Footer Left-->
                 <div class="footer-left col s6 ">
                     <!--The link is the geographical address on google maps used by Balanced Training-->
-                    <a id="" class="left"
+                    <a class="left"
                         href="https://maps.google.com/maps/dir//Balanced+Training+Unit+A3,+Seedbed+Business+Centre+Vanguard+Way+Southend-on-Sea+SS3+9QY/@51.534883,0.7957074,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x47d927b7c1b1e26d:0x8d658dbbe5f7866"
                         target="_blank">
                         <p>Unit A3</p>
                         <p>Seedbed Business Centre,</p>
                         <p>Vanguard Way,</p>
                         <p>Shoeburyness,</p>
-                        <p>SS3 0JB</p></a>
+                        <p>SS3 0JB</p>
+                    </a>
 
-                    <p class="telephone" ><i class="fas fa-phone"></i><a class="phone-text" href="Tel:01702382390"> 01702 382390</a></p>
+                    <p class="telephone"><i class="fas fa-phone"></i><a class="phone-text" href="Tel:01702382390"> 01702
+                            382390</a></p>
                 </div>
                 <!--Footer Right-->
                 <div class="col format s6">
@@ -119,14 +125,12 @@
 
                         <div class="social-bottom">
                             <!--The link is the current Facebook address used by Balanced Training-->
-                            <a href="https://facebook.com/BalancedPTS/" target="_blank"
-                                title="Link to Facebook">
+                            <a href="https://facebook.com/BalancedPTS/" target="_blank" title="Link to Facebook">
                                 <i class="fab fa-facebook icon-size"></i></a></div>
                         <div class="social-bottom">
                             <!--The link is the current instagram address used by Balanced Training-->
                             <div class="follow">Follow</div>
-                            <a href="https://instagram.com/balanced_training" target="_blank"
-                                title="Link to Instagram">
+                            <a href="https://instagram.com/balanced_training" target="_blank" title="Link to Instagram">
                                 <i class="fab fa-instagram icon-size"></i></a>
                         </div>
                         <div class="social-bottom">
@@ -137,6 +141,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </footer>
 </body>
 
