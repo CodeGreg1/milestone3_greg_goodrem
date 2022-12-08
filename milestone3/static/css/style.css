@@ -402,3 +402,8 @@ a.btn.records {
 div#modal1.modal.open {
     left: -15%;
 }
+
+h1 {
+    font-size: 40px;
+    color: crimson;
+}
