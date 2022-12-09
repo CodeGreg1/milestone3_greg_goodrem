@@ -406,3 +406,7 @@ h1 {
     font-size: 40px;
     color: crimson;
 }
+
+label {
+    color: #707070;
+}

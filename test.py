@@ -1,6 +1,6 @@
 try:
-    from milestone3 import app
     import unittest
+    from milestone3 import app
 
 except Exception as e:
     print("Some modules are Missing {} ".format(e))
