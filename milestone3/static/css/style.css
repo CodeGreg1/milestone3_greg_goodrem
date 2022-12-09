@@ -36,10 +36,6 @@ main {
     margin-right: 10px;
 }
 
-iframe {
-    height: 80vh;
-}
-
 .larger {
     font-size: larger;
 }
@@ -371,12 +367,6 @@ textarea#message {
     transform: translateX(-50%);
 }
 
-.gmap_canvas {
-    overflow:hidden;background:none!important;height:275px;width:100%;}
-
-.mapouter{position:relative;text-align:right;height:275px;width:100%;}
-
-
 a.btn.right {
     color: white;
     padding: 5px;
@@ -407,6 +397,15 @@ h1 {
     color: crimson;
 }
 
-label {
+.input-field label, label {
     color: #707070;
 }
+
+/* 
+
+.mapouter{
+    position:absolute;
+    text-align:left;
+    height:275px;
+    width:150px;
+} */
