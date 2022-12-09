@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!-- top banner -->
 <div id="bannersm" class="row">
   <div><img class="bannersm center-align" src="../static/images/frontPageBanner.webp" alt="Sports Therapy Picture">
   </div>
 </div>
 
-
+<!-- First section 'How it Works' -->
 <div id="stepTitle" class="row">
   <div class="col s12 stepTitle center-align">How it works</div>
   <div class="grid-example col s12 m6 l4 center-align">
@@ -21,14 +21,14 @@
     <img class="steps" src="../static/images/3.webp" alt="Step 3 Personalised Rehab plan">
   </div>
 </div>
-
+<!-- Call to action button -->
 <a href="{{ url_for('register') }}" class="waves-effect waves-light btn-large blue darken-4 center cta">Book your
   appointment here</a>
-
+<!-- Second section 'Meet the Team' -->
 <div class="stepTitle center-align">Meet the Team</div>
 <div class="row">
   <div class="col s12 m6 l4 center">
-    <!--The image used has been supplied by Balanced Training-->
+    <!--The image used has been supplied by Balanced Training first colleague-->
     <img class="profilepic" src="../static/images/sarah-sm-elb.webp" alt="Sarah Profile pic">
     <h4 class="therapists"> <strong>Sarah Goodrem</strong><br> Head Sports Therapist & PT</h4>
     <p>Being a Sports Therapist and Personal trainer gives Sarah an insight into how to both,
@@ -37,14 +37,14 @@
     </p>
   </div>
   <div class="col s12 m6 l4 center">
-    <!--The image used has been supplied by Balanced Training-->
+    <!--The image used has been supplied by Balanced Training second colleague-->
     <img class="profilepic" src="../static/images/ross-spoons.webp" alt="Greg Profile pic">
     <h4 class="therapists"> <strong>Greg Goodrem</strong><br> Trainee Massage Therapist & PT</h4>
     <p class="center">Having delivered THOUSANDS of hours of personal training since starting in 2005, Greg can
       help you slowly return to sport and exercise after your treatment.</p>
   </div>
   <div class="col s12 m6 l4 center">
-    <!--The image used has been supplied by Balanced Training-->
+    <!--The image used has been supplied by Balanced Training third colleague-->
     <img class="profilepic" src="../static/images/max-outside.webp" alt="Max profile pic">
     <h4 class="therapists"> <strong> Maximus Goodrem</strong> <br>Emotional Support</h4>
     <p>This little guy is an integral part of our team always brings a smile to
@@ -52,7 +52,7 @@
       out in the office upstairs but is on hand for a stroke or to eat a treat.</p>
   </div>
 </div>
-<!--Opening Times-->
+<!--Third section Opening Times or availability-->
 <div class="container-fluid map-opening">
   <div class="row">
     <div class="col-12 col-md-4 text-center opening">
@@ -92,14 +92,14 @@
     </div>
   </div>
 </div>
-
+<!-- Fourth Section 'Where are we' Map-->
 <div class="stepTitle center-align">Where are we?</div>
 
 <div class="mapouter">
   <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1087.7685759654782!2d0.7947577885186309!3d51.5357096853834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d927b7c1b1e26d%3A0x8d658dbbe5f7866!2sBalanced%20Training!5e0!3m2!1sen!2suk!4v1670581827075!5m2!1sen!2suk" style="border:0; width:100%; height:275px;" loading="lazy"></iframe>
   </div>
 <br>
-
+<!-- Contact Form -->
 <div class="stepTitle center-align">Contact Us</div>
 <div class="row">
   <div class="col s12">

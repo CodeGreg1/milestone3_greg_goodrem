@@ -1,5 +1,5 @@
 const btn = document.getElementById('buttonsm');
-
+// Below is the code to send emails using emailJS
 function sendReset() {
   btn.value = 'Send Email';
 }
