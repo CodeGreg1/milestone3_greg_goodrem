@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
 
-/* Global settings */
+/* Global stylings */
 body {display: flex;
     font-family: 'Muli', sans-serif;
     min-height: 100vh;
@@ -21,6 +21,14 @@ a.brand-logo {margin:  0 0 10px 10px ;}
     height: 100vh;}
 
 .hide {visibility: hidden;}
+
+.larger {font-size: larger;}
+
+.card-panel.light-grey {width: 100%;
+    margin-left: 0;
+    margin-right: 0;}
+
+.card {border-radius: 15px;}
 
 /* Flash message font */
 h1 {font-size: 40px;
@@ -140,51 +148,6 @@ table.opening {width: 300px;
 
 .therapists {font-size: 26px;}
 
-/* Report Styling */
-.bold {font-weight: 800;
-    font-size: 20px;}
-
-/* Edit Client this */
-.pad10 {padding: 12px 5px;
-    min-width: 150px;}
-
-/*  */
-.card-action.cog.vis{padding: 0;
-    visibility: hidden ;
-    height: 0;}
-
-
-.larger {font-size: larger;}
-
-.card_panel {padding: 5px 5px;}
-
-.reseter{width: 90px;}
-
-.headcent {text-align: center;}
-
-.smallbold {font-size: 16px;
-    font-weight: 500;
-    padding: 0;}
-
-.tnumrep {font-size: 22px;}
-
-body > main > div > div:nth-child(2) > div.col > table {line-height: 0;
-    font-size: 12px;}
-
-body > main > div > div:nth-child(2) > div.col {left: 50px;}
-
-.gap {margin: 10px 0;}
-
-div.card-content.white-text {padding: 10px 10px 0 10px;
-    height: 80px;
-    justify-content: center;
-    text-align: center;}
-
-div.col.s2 {margin-left: auto;
-    display: flex;}
-
-.card {border-radius: 15px;}
-
 textarea#message {height: 80px;
     border-top: 1px solid white;
     border-right: 1px solid white;
@@ -192,11 +155,38 @@ textarea#message {height: 80px;
     border-bottom-color: grey;
     margin-bottom: 10px;}
 
-.card-panel.light-grey {width: 100%;
-    margin-left: 0;
-    margin-right: 0;}
+/* Report Styling */
+.bold {font-weight: 800;
+    font-size: 20px;}
+
+.headcent {text-align: center;}
+
+.tnumrep {font-size: 22px;}
+
+/* Tretment page styling */
+
+.reseter{width: 90px;}
 
 #query::placeholder {color: cadetblue;}
+
+.gap {margin: 10px 0;}
+
+/* Edit Client styling */
+.pad10 {padding: 12px 5px;
+    min-width: 150px;}
+
+.smallbold {font-size: 16px;
+    font-weight: 500;
+    padding: 0;}
+
+#editdelete {
+    margin-left: auto;
+    display: flex;}
+
+#tableft {left: 50px;}
+
+body > main > div > div:nth-child(2) > div.col > table {line-height: 0;
+    font-size: 12px;}
 
 /* Modal Styling */
 
