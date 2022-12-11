@@ -8,21 +8,23 @@ except Exception as e:
 
 class FlaskTest(unittest.TestCase):
 
-    # checking if response is 200
+    # Checking to see if response is 200
     def test_index(self):
         tester = app.test_client(self)
-        response = tester.get("/fo")
+        response = tester.get("/")
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
 
-    def test_index_content(self):
+    # Checking to see if the content is text/html
+    def test_content(self):
         tester = app.test_client(self)
-        response = tester.get("/fo")
-        self.assertEqual(response.content_type, "application/json")
+        response = tester.get("/")
+        self.assertEqual(response.content_type, "text/html; charset=utf-8")
 
+    # Checking to see if thee content is text/html
     def test_index_data(self):
         tester = app.test_client(self)
-        response = tester.get("/fo")
+        response = tester.get("/")
         self.assertTrue(b'Message' in response.data)
 
 

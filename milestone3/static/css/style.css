@@ -106,10 +106,9 @@ p.telephone {width: 100%;
     font-size: 40px;}
 
 /* Home Page Specific styling */
-img.bannersm.center-align {width: 116%;
+img.bannersm.center-align {width: 100%;
     height: auto;
     position: relative;
-    left: -8%;
     right: 0;}
 
 img.steps {margin: 0 0;
@@ -263,3 +262,8 @@ img.profilepic {border-radius: 50%;
     height: auto;
     border: 1px solid rgb(0, 0, 139, 0.8);
     box-shadow: 3px 3px 3px darkblue;}
+
+
+div.col.format.s6{
+    width: 30%;
+}

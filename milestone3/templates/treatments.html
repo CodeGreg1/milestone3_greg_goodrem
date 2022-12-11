@@ -67,11 +67,11 @@
                         <p>{{ treatment.treatment_palpation }}</p>
                         <p><em>by: {{ treatment.created_by }}</em></p>
                         {% if treatment.treatment_name|lower == "back" %}
-                        <a class="btn dlas right deep-orange" href="../static/advice/Exercise Advice Sheet - Back.pdf" download>Download {{ treatment.treatment_name|capitalize }} Recovery Advice <i class="fas fa-download"></i></a>
+                        <a class="btn dlas right deep-orange darken-4" href="../static/advice/Exercise Advice Sheet - Back.pdf" download>Download {{ treatment.treatment_name|capitalize }} Recovery Advice <i class="fas fa-download"></i></a>
                                     {% elif treatment.treatment_name|lower == "shoulder" %}
-                        <a class="btn right deep-orange" href="../static/advice/Exercise Advice Sheet - Shoulder.pdf" download>Download {{ treatment.treatment_name|capitalize }} Recovery Advice <i class="fas fa-download"></i></a>
+                        <a class="btn right deep-orange darken-4" href="../static/advice/Exercise Advice Sheet - Shoulder.pdf" download>Download {{ treatment.treatment_name|capitalize }} Recovery Advice <i class="fas fa-download"></i></a>
                                     {% elif treatment.treatment_name|lower == "knee" %}
-                        <a class="btn right deep-orange" href="../static/advice/Exercise Advice Sheet - Knee.pdf" download>Download {{ treatment.treatment_name|capitalize }} Recovery Advice <i class="fas fa-download"></i></a>
+                        <a class="btn right deep-orange darken-4" href="../static/advice/Exercise Advice Sheet - Knee.pdf" download>Download {{ treatment.treatment_name|capitalize }} Recovery Advice <i class="fas fa-download"></i></a>
                                     {% else %}
                         <a class="btn right deep-orange darken-4" href="../static/advice/Exercise Advice Sheet.pdf" download>Download {{ treatment.treatment_name|capitalize }} Recovery Advice <i class="fas fa-download"></i></a>
                                     {% endif %}
