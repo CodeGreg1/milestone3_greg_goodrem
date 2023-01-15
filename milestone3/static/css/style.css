@@ -154,6 +154,11 @@ textarea#message {height: 80px;
     border-bottom-color: grey;
     margin-bottom: 10px;}
 
+/* Book page styling */
+#booking {
+    height: 100%;
+    box-shadow: 0 0 0 0 white;
+}
 /* Report Styling */
 .bold {font-weight: 800;
     font-size: 20px;}
